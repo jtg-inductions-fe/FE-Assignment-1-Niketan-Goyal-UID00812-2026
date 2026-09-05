@@ -1,0 +1,71 @@
+@use '../abstract' as *;
+
+.header {
+    display: flex;
+    justify-content: space-between;
+
+    margin: 0 80px;
+    padding: 32px 0;
+    height: 112px;
+
+    &__menu {
+        display: none;
+    }
+
+    &__list {
+        @include flexCenter();
+        color: $color-grey;
+        font-size: 14px;
+        height: 100%;
+        gap: 64px;
+    }
+
+    &__nav {
+        display: flex;
+    }
+    &__navigation {
+        display: block;
+    }
+
+    //Tablet
+    @media (min-width: 431px) and (max-width: $breakpoint-desktop) {
+        padding: 32px 44px;
+        margin: 0;
+        &__nav {
+            flex-direction: row-reverse;
+            width: calc(100% - 220px);
+            justify-content: space-between;
+        }
+        &__navigation {
+            display: none;
+        }
+
+        &__actions {
+            width: 60%;
+            display: flex;
+            justify-content: flex-end;
+        }
+        &__menu {
+            display: block;
+        }
+    }
+
+    //mobile
+
+    @media (max-width: $breakpoint-mobile) {
+        margin: 0;
+        padding: 0;
+        &__navigation,
+        &__actions {
+            display: none;
+        }
+        &__nav {
+            width: 100%;
+            justify-content: space-between;
+            padding: 35px 15px;
+        }
+        &__menu {
+            display: block;
+        }
+    }
+}
