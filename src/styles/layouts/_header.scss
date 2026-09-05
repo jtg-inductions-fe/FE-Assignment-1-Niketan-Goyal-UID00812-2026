@@ -4,8 +4,9 @@
     display: flex;
     justify-content: space-between;
 
-    margin: 0 80px;
+    margin: 35px 80px;
     padding: 32px 0;
+    padding-left: 50px;
     height: 112px;
 
     &__menu {
@@ -26,10 +27,15 @@
     &__navigation {
         display: block;
     }
+    &__logo,
+    &__menu {
+        width: 40px;
+        height: 40px;
+    }
 
     //Tablet
     @media (min-width: 431px) and (max-width: $breakpoint-desktop) {
-        padding: 32px 44px;
+        padding: 36px 65px;
         margin: 0;
         &__nav {
             flex-direction: row-reverse;
@@ -41,7 +47,7 @@
         }
 
         &__actions {
-            width: 60%;
+            width: 68%;
             display: flex;
             justify-content: flex-end;
         }
