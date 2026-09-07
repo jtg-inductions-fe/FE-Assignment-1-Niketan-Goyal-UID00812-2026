@@ -66,3 +66,34 @@ h1 {
         text-align: center;
     }
 }
+
+.bg-orange {
+    width: 500px;
+    height: 500px;
+    background-color: $color-orange;
+    position: absolute;
+    top: 9px;
+    opacity: 50%;
+    left: -60px;
+    border-radius: 50%;
+    filter: blur(200px);
+    @media (max-width: 1024px) {
+        top: -174px;
+        left: -163px;
+    }
+    @media (max-width: 430px) {
+        width: 272px;
+        height: 348px;
+        top: -36px;
+        left: -33px;
+        filter: blur(150px);
+    }
+}
+
+.color-pink {
+    color: $color-pink;
+}
+
+.color-grey {
+    color: $color-grey;
+}
