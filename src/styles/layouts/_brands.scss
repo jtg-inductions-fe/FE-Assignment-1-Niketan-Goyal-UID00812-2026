@@ -1,0 +1,56 @@
+@use '../abstract' as *;
+
+.bg-yellow {
+    position: absolute;
+    height: rem(503px);
+    width: rem(494px);
+    right: rem(-534px);
+    top: rem(-105px);
+    background: $yellow;
+    opacity: 50%;
+    border-radius: 50%;
+    filter: blur(rem(200px));
+}
+
+.brands {
+    @include flex-container();
+    overflow-x: clip;
+    position: relative;
+    padding-top: rem(36px);
+    &__img {
+        width: 23%;
+    }
+
+    &__main {
+        @include flex-container(center, center, 0, row, wrap);
+
+        width: 100vw;
+        padding: 0;
+        height: auto;
+        row-gap: rem(16px);
+        column-gap: rem(16px);
+
+        @include media-up(tablet) {
+            height: 224px;
+            gap: rem(32px);
+            padding: rem(64px) 0;
+            height: rem(158px);
+            justify-content: center;
+            width: 69%;
+        }
+        @include media-up(desktop) {
+            width: 82vw;
+            flex-wrap: nowrap;
+            justify-content: space-between;
+            padding: rem(64px) 0;
+            height: rem(158px);
+        }
+    }
+
+    @include media-up(tablet) {
+        padding: 0;
+        &__img {
+            width: auto;
+        }
+    }
+}
