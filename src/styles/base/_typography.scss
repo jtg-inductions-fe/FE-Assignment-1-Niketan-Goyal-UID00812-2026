@@ -34,3 +34,16 @@
 .color-grey {
     color: $color-grey;
 }
+
+.bg-yellow {
+    position: absolute;
+    height: 503px;
+    width: 494px;
+    right: -534px;
+    top: -105px;
+    background: $color-yellow;
+    opacity: 50%;
+
+    border-radius: 50%;
+    filter: blur(200px);
+}
