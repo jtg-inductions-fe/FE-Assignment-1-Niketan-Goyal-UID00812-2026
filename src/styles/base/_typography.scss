@@ -35,6 +35,9 @@
     color: $color-grey;
 }
 
+.color-orange {
+    color: $color-orange;
+}
 .bg-yellow {
     position: absolute;
     height: 503px;
@@ -43,7 +46,6 @@
     top: -105px;
     background: $color-yellow;
     opacity: 50%;
-
     border-radius: 50%;
     filter: blur(200px);
 }
