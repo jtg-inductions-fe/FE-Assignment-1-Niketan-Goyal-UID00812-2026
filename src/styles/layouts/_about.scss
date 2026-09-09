@@ -4,6 +4,7 @@
 .about {
     display: flex;
     width: 91vw;
+    max-width: 2000px;
     padding: 72px 0 64px 0;
     &__heading {
         color: $color-pink;
