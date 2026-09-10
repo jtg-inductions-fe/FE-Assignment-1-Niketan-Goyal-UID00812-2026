@@ -56,7 +56,7 @@
                             <p class="color-pink">Explore the World</p>
                             <img
                                 src="/assets/images/Explore_the_world.png"
-                                alt=""
+                                alt=" a small Explore icon"
                             />
                         </div>
                         <h1 class="hero__heading">
@@ -85,7 +85,10 @@
                                 Watch Demo
                             </button>
                             <div class="hero__side-arrows">
-                                <img src="/assets/images/OBJECTS.png" alt="" />
+                                <img
+                                    src="/assets/images/OBJECTS.png"
+                                    alt="upwards arrows"
+                                />
                             </div>
                         </div>
                     </div>
@@ -94,22 +97,49 @@
                     <div class="hero__right__section">
                         <div class="hero__right__main">
                             <div class="hero__right__left">
-                                <img
-                                    src="/assets/images/hero_section_1.jpg"
-                                    alt=""
-                                    class="hero_right--image"
-                                />
-                                <img
-                                    src="/assets/images/hero_section_2.jpg"
-                                    alt=""
-                                />
+                                <picture>
+                                    <source
+                                        media="(max-width: 1024px)"
+                                        srcset="
+                                            /assets/images/hero_section_1_small.webp
+                                        "
+                                    />
+                                    <img
+                                        src="/assets/images/hero_section_1.webp"
+                                        alt="Traveler enjoying a peaceful view of the sea"
+                                        class="hero_right--image"
+                                    />
+                                </picture>
+
+                                <picture>
+                                    <source
+                                        media="(max-width: 1024px)"
+                                        srcset="
+                                            /assets/images/hero_section_2_small.webp
+                                        "
+                                    />
+                                    <img
+                                        src="/assets/images/hero_section_2.webp"
+                                        alt="Traveler sitting on a mountain "
+                                    />
+                                </picture>
                             </div>
+
                             <div class="hero__right__right">
-                                <img
-                                    src="/assets/images/hero_section_3.jpg"
-                                    alt=""
-                                />
+                                <picture>
+                                    <source
+                                        media="(max-width: 1024px)"
+                                        srcset="
+                                            /assets/images/hero_section_3_small.webp
+                                        "
+                                    />
+                                    <img
+                                        src="/assets/images/hero_section_3.webp"
+                                        alt="Traveler taking a photo"
+                                    />
+                                </picture>
                             </div>
+
                             <div class="hero__right__main--tele">
                                 <img
                                     src="/assets/images/send.png"
@@ -120,11 +150,15 @@
                             <div class="hero__right__main--user">
                                 <img
                                     src="/assets/images/add-user.png"
+                                    alt="user icon"
                                     width="32px"
                                 />
                             </div>
                             <div class="hero__right__main--top-places">
-                                <img src="/assets/images/location.png" alt="" />
+                                <img
+                                    src="/assets/images/location.png"
+                                    alt="location"
+                                />
                                 Top Places
                             </div>
                         </div>
