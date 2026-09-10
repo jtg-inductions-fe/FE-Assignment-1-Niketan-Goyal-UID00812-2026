@@ -1,0 +1,78 @@
+@use '../abstract' as *;
+
+.header {
+    display: flex;
+    justify-content: space-between;
+
+    // margin: 35px 110px 0 90px;
+    margin: 35px 117px 0 79px;
+    padding: 32px 0;
+    padding-left: 50px;
+    height: 112px;
+
+    &__menu {
+        display: none;
+    }
+
+    &__list {
+        @include flexCenter();
+        color: $color-grey;
+        font-size: 14px;
+        height: 100%;
+        gap: 64px;
+    }
+
+    &__nav {
+        display: flex;
+    }
+    &__navigation {
+        display: block;
+    }
+    &__logo,
+    &__menu {
+        width: 40px;
+        height: 40px;
+    }
+
+    //Tablet
+    @media (min-width: 431px) and (max-width: 1024px) {
+        padding: 36px 65px;
+        margin: 0;
+        &__nav {
+            flex-direction: row-reverse;
+            width: calc(100% - 220px);
+            justify-content: space-between;
+        }
+        &__navigation {
+            display: none;
+        }
+
+        &__actions {
+            width: 68%;
+            display: flex;
+            justify-content: flex-end;
+        }
+        &__menu {
+            display: block;
+        }
+    }
+
+    //mobile
+
+    @media (max-width: $breakpoint-mobile) {
+        margin: 0;
+        padding: 0;
+        &__navigation,
+        &__actions {
+            display: none;
+        }
+        &__nav {
+            width: 100%;
+            justify-content: space-between;
+            padding: 35px 15px;
+        }
+        &__menu {
+            display: block;
+        }
+    }
+}
