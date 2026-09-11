@@ -1,4 +1,14 @@
-$color-pink: #f85e9f;
-$color-blue: #5d50c6;
-$color-orange: #ff5722;
-$color-grey: #19182580;
+$font-size-sm: 14px;
+$font-size-md: 16px;
+$font-size-lg: 18px;
+
+$breakpoints: (
+    'mobile': 430px,
+    'tablet': 1024px,
+    'desktop': 1440px,
+    'desktop-lg': 1800px,
+);
+
+$buton-font: $font-size-sm;
+$navbar-font: $font-size-sm;
+$subheading-size: $font-size-lg;

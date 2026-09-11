@@ -1,0 +1,32 @@
+@use './variables' as *;
+
+@mixin flex-container(
+    $justify: center,
+    $align: center,
+    $gap: 0,
+    $direction: row,
+    $wrap: wrap,
+    $flex-display: flex
+) {
+    display: $flex-display;
+    justify-content: $justify;
+    align-items: $align;
+    gap: $gap;
+    flex-direction: $direction;
+    flex-wrap: $wrap;
+}
+
+@mixin media-up($breakpoint) {
+    @if map-has-key($breakpoints, $breakpoint) {
+        @media (min-width: map-get($breakpoints, $breakpoint)) {
+            @content;
+        }
+    }
+}
+@mixin media-down($breakpoint) {
+    @if map-has-key($breakpoints, $breakpoint) {
+        @media (max-width: map-get($breakpoints, $breakpoint)) {
+            @content;
+        }
+    }
+}
