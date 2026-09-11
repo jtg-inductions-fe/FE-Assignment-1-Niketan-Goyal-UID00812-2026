@@ -55,14 +55,10 @@ h1 {
     font-size: rem($font-size-lg);
     color: $grey-50;
     line-height: 160%;
-    letter-spacing: rem(1px);
     @include media-down(desktop-lg) {
-        padding: 0 rem(28px);
         text-align: center;
     }
     @include media-down(mobile) {
-        padding: 0;
-        font-size: rem($font-size-md);
         text-align: center;
     }
 }
@@ -70,7 +66,7 @@ h1 {
 .bg-orange {
     width: 500px;
     height: 500px;
-    background-color: $color-orange;
+    background-color: $orange;
     position: absolute;
     top: 9px;
     opacity: 50%;
@@ -91,9 +87,9 @@ h1 {
 }
 
 .color-pink {
-    color: $color-pink;
+    color: $pink;
 }
 
 .color-grey {
-    color: $color-grey;
+    color: $grey;
 }
