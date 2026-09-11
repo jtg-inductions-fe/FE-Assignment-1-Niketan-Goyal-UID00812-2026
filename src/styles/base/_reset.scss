@@ -38,6 +38,8 @@ a {
 }
 .container {
     width: 100%;
+    overflow: hidden;
+    position: relative;
     max-width: 2000px;
     margin-inline: auto;
 }

@@ -71,5 +71,18 @@ async function showRating() {
     });
     splide.mount();
 }
-
 showRating();
+
+const arrow = document.querySelectorAll('.footer__accordianBtn');
+arrow.forEach((element) => {
+    element.addEventListener('click', () => {
+        element.firstElementChild.classList.toggle('footer__rotate');
+        if (element.getAttribute('aria-expanded') == 'true') {
+            element.setAttribute('aria-expanded', false);
+        } else {
+            element.setAttribute('aria-expanded', true);
+        }
+        let closest = element.previousElementSibling;
+        closest.classList.toggle('footer__columns--active');
+    });
+});
