@@ -1,25 +1,9 @@
 @use '../abstract' as *;
 
-h1 {
-    font-size: rem(69px);
-    line-height: 120%;
-    width: 420px;
-    height: 249px;
-    @include media-down(desktop-lg) {
-        @include font-size(69px);
-        width: min(rem(575px), 80vw);
-        height: auto;
-        text-align: center;
-    }
-    @include media-down(mobile) {
-        @include font-size(69px);
-    }
-}
-
 .heading {
     color: $pink;
 
-    font-weight: Bold;
+    font-weight: $font-weight-bold;
     font-size: rem(23px);
     letter-spacing: rem(5px);
 
@@ -35,16 +19,16 @@ h1 {
 }
 
 .subheading {
-    font-weight: bold;
+    font-weight: $font-weight-bold;
     font-size: rem($font-size-5xl);
-    line-height: 120%;
+    line-height: 1.2;
     padding-bottom: rem($font-size-3xl);
     @include media-down(desktop-lg) {
-        font-size: 40px;
+        @include font-size($font-size-4xl);
     }
 
     @include media-down(mobile) {
-        font-size: 32px;
+        @include font-size($font-size-3xl);
 
         text-align: center;
     }
@@ -52,27 +36,23 @@ h1 {
 
 .description {
     font-family: 'Inter';
-    font-size: rem($font-size-lg);
+    @include font-size($font-size-lg);
     color: $grey-50;
     line-height: 160%;
-    letter-spacing: rem(1px);
     @include media-down(desktop-lg) {
-        padding: 0 rem(28px);
         text-align: center;
     }
     @include media-down(mobile) {
-        padding: 0;
-        font-size: rem($font-size-md);
         text-align: center;
     }
 }
 
 .bg-orange {
-    width: 500px;
-    height: 500px;
-    background-color: $color-orange;
+    width: rem(500px);
+    height: rem(500px);
+    background-color: $orange;
     position: absolute;
-    top: 9px;
+    top: rem(9px);
     opacity: 50%;
     left: -60px;
     border-radius: 50%;
@@ -91,9 +71,9 @@ h1 {
 }
 
 .color-pink {
-    color: $color-pink;
+    color: $pink;
 }
 
 .color-grey {
-    color: $color-grey;
+    color: $grey;
 }
