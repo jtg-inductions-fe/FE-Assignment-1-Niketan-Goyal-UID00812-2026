@@ -1,0 +1,36 @@
+.brands {
+    display: flex;
+    justify-content: center;
+    overflow-x: clip;
+    position: relative;
+    &__main {
+        width: 82vw;
+        padding: 64px 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 158px;
+        flex-wrap: wrap;
+
+        @media (max-width: 1024px) {
+            height: 224px;
+            gap: 32px;
+            justify-content: center;
+            width: 69%;
+        }
+        @media (max-width: 430px) {
+            width: 100vw;
+            padding: 0;
+            height: auto;
+            row-gap: 16px;
+            column-gap: 16px;
+        }
+    }
+
+    @media (max-width: 430px) {
+        padding-top: 36px;
+        &__img {
+            width: 25%;
+        }
+    }
+}
