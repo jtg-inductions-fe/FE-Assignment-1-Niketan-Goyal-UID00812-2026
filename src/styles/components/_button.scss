@@ -1,0 +1,19 @@
+@use '../abstract/' as *;
+
+.button {
+    padding: rem(16px) rem(32px);
+    white-space: nowrap;
+    border-radius: rem(40px);
+    font-size: rem($font-size-sm);
+    font-weight: $font-weight-bold;
+
+    &--primary {
+        background-color: $blue;
+        color: $white-light;
+    }
+
+    &--secondary {
+        background-color: transparent;
+        color: $grey-dark;
+    }
+}

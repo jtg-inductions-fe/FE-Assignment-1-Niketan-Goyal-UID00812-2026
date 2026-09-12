@@ -11,10 +11,47 @@ as many choices as possible "
         />
 
         <link rel="stylesheet" href="src/styles/main.scss" />
-        <link rel="icon" type="image/svg+xml" href="/assets/images/logo.svg" />
+        <link rel="icon" type="image/svg+xml" href="/assets/icons/logo.svg" />
     </head>
     <body>
-        <div>hlo</div>
+        <header class="header">
+            <div class="header__icons">
+                <a href="/" class="header__logo">
+                    <img src="/assets/icons/logo.svg" alt="logo" />
+                </a>
+                <button class="header__menu" aria-label="open menu">
+                    <img
+                        class="header__menu--img"
+                        src="/assets/icons/menu.svg"
+                        alt="menu"
+                    />
+                </button>
+            </div>
+            <!-- only show in desktop or larger screens -->
+            <nav class="header__navigation">
+                <ul class="header__list">
+                    <li class="header__item">
+                        <a href="#home" class="header__link">Home</a>
+                    </li>
+                    <li class="header__item">
+                        <a href="#discover" class="header__link">Discover</a>
+                    </li>
+                    <li class="header__item">
+                        <a href="#special_deals" class="header__link"
+                            >Special Deals</a
+                        >
+                    </li>
+                    <li class="header__item">
+                        <a href="#contact" class="header__link">Contact</a>
+                    </li>
+                </ul>
+            </nav>
+
+            <div class="header__actions">
+                <button class="button button--secondary">Log In</button>
+                <button class="button button--primary">Sign Up</button>
+            </div>
+        </header>
         <script type="module" src="./src/script/index.js"></script>
     </body>
 </html>
