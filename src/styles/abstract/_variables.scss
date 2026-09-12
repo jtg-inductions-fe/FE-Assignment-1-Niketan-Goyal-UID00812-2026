@@ -12,9 +12,13 @@ $breakpoints: (
     'mobile': 430px,
     'tablet': 431px,
     'medium': 980px,
-    'desktop': 1024px,
+    'desktop': 1025px,
     'desktop-lg': 1439px,
 );
+
+$font-weight-bold: 700;
+$font-weight-medium: 500;
+$font-weight-regular: 400;
 
 $buton-font: $font-size-sm;
 $navbar-font: $font-size-sm;

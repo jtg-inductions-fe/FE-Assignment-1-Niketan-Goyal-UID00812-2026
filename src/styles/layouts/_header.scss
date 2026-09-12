@@ -1,75 +1,90 @@
 @use '../abstract' as *;
 
 .header {
-    display: flex;
-    justify-content: space-between;
-    font-weight: bold;
-    margin: rem(35px) rem(80px);
-    padding: rem(32px) 0;
-    padding-left: rem(50px);
-    height: rem(112px);
+    @include flex-container(space-between, center);
+    margin: 0;
+    padding: 0;
+    font-weight: $font-weight-bold;
 
-    &__menu {
-        display: none;
-    }
-
-    &__list {
-        @include flex-container(center, center, 64px);
-        color: $grey-50;
-        @include font-size($font-size-sm);
-        height: 100%;
+    &__icons {
+        @include flex-container(space-between, center);
+        width: 100%;
+        padding: rem(37px) rem(22px) rem(35px) rem(16px);
     }
 
-    &__nav {
-        display: flex;
-    }
-    &__navigation {
-        display: block;
-    }
     &__logo,
     &__menu {
         width: rem(40px);
         height: rem(40px);
     }
-    //tablet
-    @include media-up(tablet) {
-        @include media-down(desktop) {
-            padding: rem(36px) rem(65px);
-            margin: 0;
-            &__nav {
-                flex-direction: row-reverse;
-                width: calc(100% - 220px);
-                justify-content: space-between;
-            }
-            &__navigation {
-                display: none;
-            }
 
-            &__actions {
-                width: 68%;
-                display: flex;
-                justify-content: flex-end;
-            }
-            &__menu {
-                display: block;
-            }
+    &__menu {
+        display: block;
+
+        &--img {
+            width: 100%;
+            height: 100%;
+            transform: scale(1.2);
         }
     }
-    //mobile
-    @include media-down(mobile) {
-        margin: 0;
-        padding: 0;
-        &__navigation,
-        &__actions {
+
+    &__navigation,
+    &__actions {
+        display: none;
+    }
+
+    &__link {
+        &--active {
+            color: $grey-dark;
+        }
+    }
+
+    // Tablet
+    @include media-up(tablet) {
+        padding: rem(32px) rem(62px) rem(32px) rem(66px);
+
+        &__icons {
+            flex-direction: row-reverse;
+            width: 52%;
+            padding: 0;
+        }
+
+        &__navigation {
             display: none;
         }
-        &__nav {
-            width: 100%;
-            justify-content: space-between;
-            padding: rem(35px) rem(15px);
+
+        &__actions {
+            display: flex;
+            justify-content: flex-end;
         }
+    }
+
+    // Desktop
+    @include media-up(desktop) {
+        margin: rem(35px) rem(117px) 0 rem(79px);
+        padding: rem(32px) 0 rem(32px) rem(50px);
+
+        &__icons {
+            width: auto;
+        }
+
         &__menu {
+            display: none;
+        }
+
+        &__navigation {
             display: block;
+        }
+
+        &__actions {
+            display: flex;
+        }
+
+        &__list {
+            @include flex-container(center, center, 64px);
+            @include font-size($font-size-sm);
+            color: $grey-50;
+            height: 100%;
         }
     }
 }

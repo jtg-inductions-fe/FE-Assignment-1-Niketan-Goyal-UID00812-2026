@@ -1,11 +1,11 @@
 @use '../abstract/' as *;
 
 .button {
-    width: rem(111px);
-    height: 100%;
+    padding: rem(16px) rem(32px);
+    white-space: nowrap;
     border-radius: rem(40px);
-    font-size: $font-size-sm;
-    font-weight: 700;
+    font-size: rem($font-size-sm);
+    font-weight: $font-weight-bold;
 
     &--primary {
         background-color: $blue;
