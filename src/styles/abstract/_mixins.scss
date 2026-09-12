@@ -1,4 +1,5 @@
 @use './variables' as *;
+@use './functions' as fn;
 
 @mixin flex-container(
     $justify: center,
@@ -29,4 +30,8 @@
             @content;
         }
     }
+}
+
+@mixin font-size($size) {
+    font-size: fn.rem($size);
 }

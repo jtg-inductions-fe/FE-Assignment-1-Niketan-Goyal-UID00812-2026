@@ -6,6 +6,10 @@
     box-sizing: border-box;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 ol,
 ul {
     list-style: none;
@@ -13,6 +17,8 @@ ul {
 
 button {
     border: none;
+    background: none;
+    cursor: pointer;
 }
 
 a {

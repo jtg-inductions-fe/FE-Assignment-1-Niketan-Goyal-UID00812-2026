@@ -1,14 +1,24 @@
+$font-size-xs: 12px;
 $font-size-sm: 14px;
 $font-size-md: 16px;
 $font-size-lg: 18px;
+$font-size-xl: 20px;
+$font-size-2xl: 24px;
+$font-size-3xl: 32px;
+$font-size-4xl: 40px;
+$font-size-5xl: 44px;
 
 $breakpoints: (
     'mobile': 430px,
-    'tablet': 1024px,
-    'desktop': 1440px,
-    'desktop-lg': 1800px,
+    'tablet': 431px,
+    'medium': 980px,
+    'desktop': 1024px,
+    'desktop-lg': 1439px,
 );
 
 $buton-font: $font-size-sm;
 $navbar-font: $font-size-sm;
 $subheading-size: $font-size-lg;
+
+$font-family-primary: 'Inter', sans-serif;
+$font-family-secondary: 'circularStd', sans-serif;
