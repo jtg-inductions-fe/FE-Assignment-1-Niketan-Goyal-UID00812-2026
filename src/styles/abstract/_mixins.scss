@@ -6,10 +6,9 @@
     $align: center,
     $gap: 0,
     $direction: row,
-    $wrap: wrap,
-    $flex-display: flex
+    $wrap: nowrap
 ) {
-    display: $flex-display;
+    display: flex;
     justify-content: $justify;
     align-items: $align;
     gap: $gap;

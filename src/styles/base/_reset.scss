@@ -1,3 +1,4 @@
+@use '../abstract' as *;
 *,
 *::before,
 *::after {
@@ -8,6 +9,9 @@
 
 html {
     scroll-behavior: smooth;
+}
+body {
+    font-family: 'circularStd', 'Inter', sans-serif;
 }
 
 ol,
@@ -26,6 +30,6 @@ a {
 }
 
 :focus-visible {
-    outline: 2px solid #2563eb;
+    outline: 2px solid $blue;
     outline-offset: 2px;
 }
