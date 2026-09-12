@@ -1,19 +1,19 @@
-@use '../abstract/variables' as *;
-@use '../abstract/color' as *;
+@use '../abstract/' as *;
+
 .button {
-    width: 111px;
+    width: rem(111px);
     height: 100%;
-    border-radius: 40px;
+    border-radius: rem(40px);
     font-size: $font-size-sm;
     font-weight: 700;
 
     &--primary {
-        background-color: $color-blue;
-        color: white;
+        background-color: $blue;
+        color: $white-light;
     }
 
     &--secondary {
         background-color: transparent;
-        color: $color-grey;
+        color: $grey-dark;
     }
 }
