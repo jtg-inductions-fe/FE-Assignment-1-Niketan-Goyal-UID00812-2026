@@ -1,0 +1,68 @@
+@use '../abstract' as *;
+
+h1 {
+    font-size: rem(69px);
+    line-height: 120%;
+    width: 420px;
+    height: 249px;
+    @include media-down(desktop-lg) {
+        @include font-size(69px);
+        width: min(rem(575px), 80vw);
+        height: auto;
+        text-align: center;
+    }
+    @include media-down(mobile) {
+        @include font-size(69px);
+    }
+}
+
+.heading {
+    color: $pink;
+
+    font-weight: Bold;
+    font-size: rem(23px);
+    letter-spacing: rem(5px);
+
+    padding-bottom: rem(16px);
+    text-transform: uppercase;
+
+    @include media-down(mobile) {
+        font-size: rem($font-size-md);
+
+        letter-spacing: rem(3px);
+        text-align: center;
+    }
+}
+
+.subheading {
+    font-weight: bold;
+    font-size: rem($font-size-5xl);
+    line-height: 120%;
+    padding-bottom: rem($font-size-3xl);
+    @include media-down(desktop-lg) {
+        font-size: 40px;
+    }
+
+    @include media-down(mobile) {
+        font-size: 32px;
+
+        text-align: center;
+    }
+}
+
+.description {
+    font-family: 'Inter';
+    font-size: rem($font-size-lg);
+    color: $grey-50;
+    line-height: 160%;
+    letter-spacing: rem(1px);
+    @include media-down(desktop-lg) {
+        padding: 0 rem(28px);
+        text-align: center;
+    }
+    @include media-down(mobile) {
+        padding: 0;
+        font-size: rem($font-size-md);
+        text-align: center;
+    }
+}
