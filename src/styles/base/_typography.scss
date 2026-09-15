@@ -37,10 +37,14 @@
 
 .description {
     font-family: 'Inter';
-    @include font-size($font-size-lg);
+    @include font-size($font-size-md);
     color: $grey-50;
     line-height: 1.6;
     text-align: center;
+
+    @include media-up(tablet) {
+        @include font-size($font-size-lg);
+    }
 
     @include media-up(desktop-lg) {
         text-align: left;
