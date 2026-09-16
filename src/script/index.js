@@ -1,3 +1,5 @@
+import Splide from '@splidejs/splide';
+import '@splidejs/splide/css';
 const links = document.querySelectorAll('.header__link');
 
 function updateActiveLink() {
@@ -14,8 +16,6 @@ function updateActiveLink() {
 updateActiveLink();
 
 window.addEventListener('hashchange', updateActiveLink);
-import Splide from '@splidejs/splide';
-import '@splidejs/splide/css';
 
 const splide = new Splide('.splide', {
     type: 'loop',
