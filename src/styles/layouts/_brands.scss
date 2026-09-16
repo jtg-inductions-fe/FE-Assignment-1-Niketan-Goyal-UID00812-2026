@@ -19,37 +19,30 @@
     padding-top: rem(36px);
     &__img {
         width: 23%;
+        @include media-up(tablet) {
+            width: auto;
+        }
     }
 
     &__main {
-        @include flex-container(center, center, 0, row, wrap);
-        width: 100vw;
+        @include flex-container(center, center, rem(16px), row, wrap);
         padding: 0;
         height: auto;
-        row-gap: rem(16px);
-        column-gap: rem(16px);
 
         @include media-up(tablet) {
-            height: rem(224px);
             gap: rem(32px);
             padding: rem(64px) 0;
             height: rem(158px);
-            justify-content: center;
             width: 69%;
         }
         @include media-up(desktop) {
             width: 82vw;
             flex-wrap: nowrap;
             justify-content: space-between;
-            padding: rem(64px) 0;
-            height: rem(158px);
         }
     }
 
     @include media-up(tablet) {
         padding: 0;
-        &__img {
-            width: auto;
-        }
     }
 }
