@@ -1,0 +1,45 @@
+$shadow-black-12: #00000012;
+$shadow-black-10: #0000001a;
+$shadow-black-9: #00000017;
+$shadow-black-8: #0000000f;
+$shadow-black-6: #0000000d;
+$shadow-black-4: #0000000a;
+$shadow-black-2: #00000003;
+$shadow-black-0: #00000000;
+
+$shadow-card:
+    0 0 0 0 $shadow-black-12,
+    0 34px 75px 0 $shadow-black-12,
+    0 137px 137px 0 $shadow-black-8,
+    0 308px 185px 0 $shadow-black-4,
+    0 548px 219px 0 $shadow-black-2;
+
+$shadow-button:
+    0 0 0 0 $shadow-black-10,
+    0 5px 11px 0 $shadow-black-10,
+    0 20px 20px 0 $shadow-black-9,
+    0 45px 27px 0 $shadow-black-6,
+    0 81px 32px 0 $shadow-black-2,
+    0 126px 35px 0 $shadow-black-0;
+
+$shadow-card-mobile:
+    0 22.07px 13.35px 0 $shadow-black-6,
+    0 39.53px 15.91px 0 $shadow-black-2,
+    0 61.6px 17.45px 0 $shadow-black-0;
+
+$shadow-card-large:
+    0 43px 26px 0 $shadow-black-6,
+    0 77px 31px 0 $shadow-black-2,
+    0 120px 34px 0 $shadow-black-0;
+
+$shadow-floating-icon:
+    0 19px 19px 0 $shadow-black-9,
+    0 43px 26px 0 $shadow-black-6,
+    0 77px 31px 0 $shadow-black-2,
+    0 120px 34px 0 $shadow-black-0;
+
+$shadow-floating-icon-mobile:
+    0 9.75px 9.75px 0 $shadow-black-9,
+    0 22.07px 13.35px 0 $shadow-black-6,
+    0 39.53px 15.91px 0 $shadow-black-2,
+    0 61.6px 17.45px 0 $shadow-black-0;

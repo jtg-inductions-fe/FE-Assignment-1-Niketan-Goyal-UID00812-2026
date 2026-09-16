@@ -1,68 +1,56 @@
 @use '../abstract' as *;
 
-h1 {
-    font-size: rem(69px);
-    line-height: 120%;
-    width: 420px;
-    height: 249px;
-    @include media-down(desktop-lg) {
-        @include font-size(69px);
-        width: min(rem(575px), 80vw);
-        height: auto;
-        text-align: center;
-    }
-    @include media-down(mobile) {
-        @include font-size(69px);
-    }
-}
-
 .heading {
     color: $pink;
 
-    font-weight: Bold;
-    font-size: rem(23px);
-    letter-spacing: rem(5px);
+    font-weight: $font-weight-bold;
+    font-size: rem($font-size-md);
+    letter-spacing: rem(3px);
 
     padding-bottom: rem(16px);
+    text-align: center;
     text-transform: uppercase;
 
-    @include media-down(mobile) {
-        font-size: rem($font-size-md);
-
-        letter-spacing: rem(3px);
-        text-align: center;
+    @include media-up(tablet) {
+        font-size: rem(23px);
+        letter-spacing: rem(5px);
+        text-align: left;
     }
 }
 
 .subheading {
-    font-weight: bold;
-    font-size: rem($font-size-5xl);
-    line-height: 120%;
+    font-weight: $font-weight-bold;
+    @include font-size($font-size-3xl);
+    line-height: 1.2;
     padding-bottom: rem($font-size-3xl);
-    @include media-down(desktop-lg) {
-        font-size: 40px;
+    text-align: center;
+
+    @include media-up(tablet) {
+        @include font-size($font-size-5xl);
     }
 
-    @include media-down(mobile) {
-        font-size: 32px;
-
-        text-align: center;
+    @include media-up(desktop-lg) {
+        @include font-size($font-size-6xl);
+        text-align: left;
     }
 }
 
 .description {
     font-family: 'Inter';
-    font-size: rem($font-size-lg);
+    @include font-size($font-size-lg);
     color: $grey-50;
-    line-height: 160%;
-    letter-spacing: rem(1px);
-    @include media-down(desktop-lg) {
-        padding: 0 rem(28px);
-        text-align: center;
+    line-height: 1.6;
+    text-align: center;
+
+    @include media-up(desktop-lg) {
+        text-align: left;
     }
-    @include media-down(mobile) {
-        padding: 0;
-        font-size: rem($font-size-md);
-        text-align: center;
-    }
+}
+
+.color-pink {
+    color: $pink;
+}
+
+.color-grey {
+    color: $grey;
 }
