@@ -15,6 +15,7 @@ as many choices as possible "
     </head>
     <body>
         <div class="container">
+            <div class="backdrop" id="backdrop"></div>
             <header class="header">
                 <div class="header__icons">
                     <a href="/" class="header__logo">
@@ -24,6 +25,7 @@ as many choices as possible "
                         class="header__menu"
                         type="button"
                         aria-label="open menu"
+                        id="header-menu"
                     >
                         <img
                             class="header__menu--img"
@@ -55,6 +57,46 @@ as many choices as possible "
                         </li>
                     </ul>
                 </nav>
+                <div class="header__hamburger" id="header-hamburger">
+                    <nav class="header__mobile-navigation">
+                        <ul class="header__mobile-list">
+                            <li class="header__mobile-item">
+                                <a href="/" class="header__mobile-link">Home</a>
+                            </li>
+
+                            <li class="header__mobile-item">
+                                <a href="#discover" class="header__mobile-link">
+                                    Discover
+                                </a>
+                            </li>
+
+                            <li class="header__mobile-item">
+                                <a
+                                    href="#special_deals"
+                                    class="header__mobile-link"
+                                >
+                                    Special Deals
+                                </a>
+                            </li>
+
+                            <li class="header__mobile-item">
+                                <a href="#contact" class="header__mobile-link">
+                                    Contact
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+
+                    <div class="header__mobile-actions">
+                        <button class="button button--secondary">Log In</button>
+                        <button class="button button--primary">Sign Up</button>
+                    </div>
+                    <img
+                        src="/assets/icons/close.svg"
+                        alt="close"
+                        class="header__close"
+                    />
+                </div>
 
                 <div class="header__actions">
                     <button class="button button--secondary">Log In</button>
@@ -436,4 +478,5 @@ as many choices as possible "
         </div>
         <script type="module" src="./src/script/index.js"></script>
     </body>
+    <script type="module" src="./src/script/index.js"></script>
 </html>
