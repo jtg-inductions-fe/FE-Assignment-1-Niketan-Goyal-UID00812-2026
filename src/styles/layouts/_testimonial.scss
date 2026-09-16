@@ -1,203 +1,184 @@
-@use '../abstract/variables' as *;
-@use '../abstract/color' as *;
-@use '../abstract/mixins' as *;
+@use '../abstract' as *;
 
 .testimonial {
     width: 100vw;
     max-width: 2000px;
-    height: 949px;
-    padding-top: 50px;
-    display: flex;
-    justify-content: center;
-    align-items: start;
+    height: rem(735px);
+    padding-top: 0;
     position: relative;
-    &__bg {
-        width: 100vw;
-        height: calc(100% - 50px);
-        max-width: 2000px;
-        background: url('/assets/images/testimonial_bg.png');
-        background-repeat: no-repeat;
-        background-size: cover;
-        background-position: center;
+    @include flex-container(center, start);
 
+    &__bg {
+        display: none;
+        width: 100vw;
+        max-width: 2000px;
+        background: url('/assets/images/testimonial_bg.png') no-repeat center /
+            cover;
         opacity: 0.1;
         position: absolute;
     }
 
     &__main {
-        width: 85%;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
+        width: 100%;
+        height: 100%;
+        @include flex-container(space-between, center);
     }
-    @media (max-width: 1024px) {
-        padding-top: 0;
-        &__main {
-            width: 90%;
-        }
+
+    @include media-up(tablet) {
         &__bg {
+            display: block;
             height: 80%;
         }
-    }
-    @media (max-width: 430px) {
-        height: 735px;
         &__main {
-            height: 100%;
-            width: 100%;
+            width: 90%;
+            height: auto;
         }
+    }
+
+    @include media-up(desktop) {
+        height: rem(949px);
+        padding-top: rem(50px);
+
         &__bg {
-            display: none;
+            height: calc(100% - 50px);
+        }
+        &__main {
+            width: 85%;
         }
     }
 }
 
 .splide {
     width: 100%;
-    display: flex;
-    justify-content: center;
-    &__track {
-        width: 80%;
-        height: 645px;
-    }
+    height: 100%;
+    @include flex-container(center, stretch);
 
-    &__pagination {
-        gap: 24px;
-        height: 24px;
-        &__page {
-            width: 24px;
-            height: 24px;
-            background-color: #1918250d;
-            border-radius: 50%;
-        }
-    }
-    &__content {
-        display: flex;
-        flex-direction: column;
-        gap: 56px;
-        align-items: center;
-        justify-content: center;
-    }
-    &__header {
-        @include flexCenter();
-        flex-direction: column;
-        gap: 16px;
-    }
-    &__heading {
-        font-family: 'circularStd';
-        font-weight: Bold;
-        font-size: 23px;
-        line-height: 120%;
-        letter-spacing: 5px;
-        text-align: center;
-        text-transform: uppercase;
-    }
-    &__subheading {
-        font-family: 'circularStd';
-        font-weight: bold;
-        font-size: 44px;
-        line-height: 120%;
-        color: #191825;
-        text-align: center;
-    }
     &__logo {
+        width: rem(128px);
+        height: rem(128px);
         border-radius: 50%;
         overflow: hidden;
         object-fit: cover;
     }
-    &__name {
-        font-family: 'circularStd';
-        font-weight: Bold;
-        font-size: 28px;
 
+    &__track {
+        width: 100vw;
+        height: rem(682px);
+    }
+
+    &__pagination {
+        gap: $font-size-2xl;
+        height: $font-size-2xl;
+        &__page {
+            width: $font-size-2xl;
+            height: $font-size-2xl;
+            background-color: $grey-10;
+            border-radius: 50%;
+        }
+    }
+
+    &__content {
+        padding-top: rem(67px);
+        @include flex-container(center, center, rem($font-size-lg), column);
+    }
+
+    &__header {
+        @include flex-container(center, center, 0, column);
+    }
+
+    &__name {
+        font-weight: $font-weight-bold;
+        @include font-size(28px);
         text-align: center;
     }
+
     &__travel {
-        font-size: 23px;
+        @include font-size(23px);
         opacity: 0.75;
     }
+
     &__bottom {
-        @include flexCenter();
-        flex-direction: column;
-        gap: 32px;
+        padding-top: rem(58px);
+        @include flex-container(center, center, 37px, column);
     }
+
     &__stars {
-        @include flexCenter();
-        gap: 16px;
-        width: 224px;
+        @include flex-container(center, center, rem($font-size-md));
+        width: rem(224px);
     }
+
     &__text {
-        font-family: 'circularStd';
-        font-size: 23px;
-        opacity: 0.75;
-        line-height: 160%;
-        font-weight: 200;
-        padding-top: 30px;
-        width: 85%;
+        @include font-size($font-size-lg);
+        color: $grey-75;
+        line-height: 1.6;
+        padding-top: rem(23px);
+        width: 89%;
         text-align: center;
     }
-    @media (max-width: 1024px) {
+
+    @include media-up(tablet) {
+        height: auto;
+
         &__track {
-            height: 682px;
             width: 75.5%;
         }
+
+        &__content {
+            padding-top: 0;
+        }
+
+        &__bottom {
+            padding-top: $font-size-5xl;
+            gap: rem($font-size-3xl);
+        }
+
+        &__text {
+            @include font-size(23px);
+            padding-top: rem(30px);
+            width: 83%;
+        }
     }
 
-    @media (max-width: 430px) {
-        height: 100%;
+    @include media-up(desktop) {
         &__track {
-            width: 67.5%;
-        }
-        &__heading {
-            font-size: 16px;
-        }
-        &__subheading {
-            font-size: 32px;
-        }
-        &__text {
-            font-size: 18px;
-        }
-        &__track {
-            width: 100vw;
-        }
-        &__list {
-            transform: none;
-        }
-        &__content {
-            padding-top: 67px;
-        }
-        &__bottom {
-            padding-top: 10px;
-            gap: 37px;
+            width: 80%;
+            height: rem(645px);
         }
     }
 }
 
 .splide__arrow.my-arrow {
-    width: 100px;
-    height: 100px;
-    @media (max-width: 430px) {
-        width: 64px;
-        height: 64px;
-        position: absolute;
-        top: 36%;
+    width: $font-size-10xl;
+    height: $font-size-10xl;
+    position: absolute;
+    top: 36%;
+
+    @include media-up(tablet) {
+        width: rem(100px);
+        height: rem(100px);
+        top: 50%;
     }
 }
 
 .splide__arrow.my-arrow.splide__arrow--next.my-next {
-    background-color: #5d50c6;
+    background-color: $blue;
     color: white;
 }
 .splide__arrow.my-arrow.splide__arrow--prev.my-prev {
     background-color: white;
-    border: 1px solid #1918251a;
+    border: 1px solid $grey-10;
 }
 .splide .splide__pagination__page.is-active {
-    background-color: $color-pink;
+    background-color: $pink;
 }
 .splide__pagination.my-pagination {
     left: 10px;
 }
 .splide__pagination__page.dots {
-    height: 24px;
-    width: 24px;
+    height: $font-size-2xl;
+    width: $font-size-2xl;
+}
+
+.color-orange {
+    color: $orange;
 }
