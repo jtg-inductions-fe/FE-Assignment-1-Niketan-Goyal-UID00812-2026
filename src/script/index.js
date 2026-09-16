@@ -85,3 +85,65 @@ arrow.forEach((button) => {
             .classList.toggle('footer__columns--active');
     });
 });
+
+const menu = document.querySelector('#header-menu');
+const hamburger = document.querySelector('#header-hamburger');
+const backdrop = document.querySelector('#backdrop');
+const close = document.querySelector('.header__close');
+const mobilenavlink = document.querySelectorAll('.header__mobile-link');
+
+mobilenavlink.forEach((element) => {
+    element.addEventListener('click', () => {
+        closeMenu();
+    });
+});
+
+menu.addEventListener('click', () => {
+    const isActive = hamburger.classList.toggle('header__hamburger--active');
+
+    backdrop.classList.toggle('backdrop--active', isActive);
+
+    document.body.classList.toggle('no-scroll', isActive);
+});
+
+backdrop.addEventListener('click', () => {
+    closeMenu();
+});
+
+close.addEventListener('click', () => {
+    closeMenu();
+});
+
+function closeMenu() {
+    hamburger.classList.remove('header__hamburger--active');
+    backdrop.classList.remove('backdrop--active');
+    document.body.classList.remove('no-scroll');
+}
+
+hamburger.addEventListener('keydown', (event) => {
+    if (event.key !== 'Tab') return;
+    const focusableElements = [
+        ...hamburger.querySelectorAll(
+            'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])',
+        ),
+    ].filter((element) => {
+        return (
+            element.offsetParent !== null &&
+            !element.hasAttribute('hidden') &&
+            getComputedStyle(element).visibility !== 'hidden'
+        );
+    });
+
+    const firstElement = focusableElements[0];
+    const lastElement = focusableElements[focusableElements.length - 1];
+
+    if (event.shiftKey && document.activeElement === firstElement) {
+        event.preventDefault();
+        lastElement.focus();
+    }
+
+    if (!event.shiftKey && document.activeElement === lastElement) {
+        event.preventDefault();
+        firstElement.focus();
+    }
+});
