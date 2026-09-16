@@ -1,9 +1,8 @@
 @use '../abstract' as *;
+
 .about {
-    display: flex;
-    flex-direction: column;
     width: 100%;
-    gap: $font-size-2xl;
+    @include flex-container(flex-start, stretch, rem($font-size-2xl), column);
     padding: rem(75px) 0 rem(64px) 0;
 
     &__img {
@@ -31,9 +30,17 @@
         );
     }
 
-    &__stats {
+    &__bottom {
         position: relative;
-        @include flex-container(center, center, rem($font-size-md), row, wrap);
+    }
+    &__stats {
+        display: grid;
+        gap: 16px;
+        grid-template-columns: repeat(1, 1fr);
+
+        @include media-up(tablet) {
+            grid-template-columns: repeat(2, 1fr);
+        }
     }
 
     &__icon {
@@ -41,8 +48,7 @@
     }
 
     @include media-up(tablet) {
-        gap: rem(60px);
-        padding-top: rem(129px);
+        gap: rem(56px);
 
         &__right {
             padding: 0 rem(65px);
@@ -52,8 +58,14 @@
         &__stats {
             gap: rem($font-size-3xl);
         }
-        &__left {
-            padding: initial;
+        &__top {
+            width: 100%;
+        }
+    }
+
+    @include media-up(desktop-lg) {
+        &__top {
+            align-items: start;
         }
     }
 
@@ -88,7 +100,6 @@
 }
 
 .stats {
-    width: 100%;
     height: rem(151px);
     border-radius: rem($font-size-3xl);
     padding: rem($font-size-3xl);
@@ -106,13 +117,5 @@
         font-family: 'Inter';
         font-weight: $font-weight-regular;
         @include font-size($font-size-lg);
-    }
-
-    @include media-up(tablet) {
-        width: 48%;
-    }
-
-    @include media-up(desktop) {
-        width: 46%;
     }
 }
