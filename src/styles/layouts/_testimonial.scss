@@ -1,37 +1,112 @@
 @use '../abstract' as *;
 
 .testimonial {
-    width: 100vw;
-    max-width: 2000px;
+    position: relative;
+    max-width: rem(2000px);
     height: rem(735px);
     padding-top: 0;
-    position: relative;
     @include flex-container(center, start);
 
-    &__bg {
+    &::after {
+        content: '';
+        position: absolute;
+        z-index: -1;
+        inset: 0;
         display: none;
-        width: 100vw;
-        max-width: 2000px;
+        width: 100%;
+        max-width: rem(2000px);
         background: url('/assets/images/testimonial_bg.png') no-repeat center /
             cover;
         opacity: 0.1;
-        position: absolute;
+    }
+
+    &__image {
+        width: rem(128px);
+        height: rem(128px);
+        border-radius: 50%;
+        overflow: hidden;
+        object-fit: cover;
     }
 
     &__main {
         width: 100%;
         height: 100%;
         @include flex-container(space-between, center);
+        @include media-up(tablet) {
+            width: 90%;
+            height: auto;
+        }
+
+        @include media-up(desktop) {
+            width: 85%;
+        }
+    }
+
+    &__header {
+        @include flex-container(center, center, 0, column);
+    }
+
+    &__author {
+        font-weight: $font-weight-bold;
+        @include font-size(28px);
+        text-align: center;
+    }
+
+    &__role {
+        @include font-size(23px);
+        opacity: 0.75;
+
+        &::before {
+            content: '/';
+        }
+    }
+
+    &__content {
+        padding-top: rem(32px);
+        @include flex-container(center, center, rem($font-size-lg), column);
+        gap: rem(22px);
+
+        @include media-up(tablet) {
+            padding-top: rem(16px);
+        }
+    }
+
+    &__text {
+        width: 89%;
+        padding-top: rem(23px);
+
+        @include font-size($font-size-lg);
+
+        color: $grey-75;
+        line-height: 1.6;
+        text-align: center;
+
+        @include media-up(tablet) {
+            width: 83%;
+            padding-top: rem(30px);
+
+            @include font-size(23px);
+        }
+    }
+
+    &__footer {
+        padding-top: rem(40px);
+        @include flex-container(center, center, rem(37px), column);
+
+        @include media-up(tablet) {
+            padding-top: $font-size-5xl;
+            gap: rem($font-size-3xl);
+        }
+    }
+
+    &__rating {
+        width: rem(224px);
+        @include flex-container(center, center, rem($font-size-md));
     }
 
     @include media-up(tablet) {
-        &__bg {
+        &::after {
             display: block;
-            height: 80%;
-        }
-        &__main {
-            width: 90%;
-            height: auto;
         }
     }
 
@@ -39,11 +114,8 @@
         height: rem(949px);
         padding-top: rem(50px);
 
-        &__bg {
+        &::after {
             height: calc(100% - 50px);
-        }
-        &__main {
-            width: 85%;
         }
     }
 }
@@ -53,127 +125,84 @@
     height: 100%;
     @include flex-container(center, stretch);
 
-    &__logo {
-        width: rem(128px);
-        height: rem(128px);
-        border-radius: 50%;
-        overflow: hidden;
-        object-fit: cover;
-    }
-
     &__track {
-        width: 100vw;
-        height: rem(682px);
+        width: 100%;
+        height: 82%;
+        padding-top: rem(64px);
+
+        @include media-up(tablet) {
+            height: rem(682px);
+            padding: 0;
+            width: 75.5%;
+        }
+
+        @include media-up(desktop) {
+            width: 80%;
+            height: rem(645px);
+        }
     }
 
     &__pagination {
         gap: $font-size-2xl;
         height: $font-size-2xl;
+
         &__page {
             width: $font-size-2xl;
             height: $font-size-2xl;
-            background-color: $grey-10;
             border-radius: 50%;
+            background-color: $grey-10;
+
+            &.is-active {
+                background-color: $pink;
+            }
+
+            &.dots {
+                width: $font-size-2xl;
+                height: $font-size-2xl;
+            }
         }
-    }
 
-    &__content {
-        padding-top: rem(67px);
-        @include flex-container(center, center, rem($font-size-lg), column);
-    }
-
-    &__header {
-        @include flex-container(center, center, 0, column);
-    }
-
-    &__name {
-        font-weight: $font-weight-bold;
-        @include font-size(28px);
-        text-align: center;
-    }
-
-    &__travel {
-        @include font-size(23px);
-        opacity: 0.75;
-    }
-
-    &__bottom {
-        padding-top: rem(58px);
-        @include flex-container(center, center, 37px, column);
-    }
-
-    &__stars {
-        @include flex-container(center, center, rem($font-size-md));
-        width: rem(224px);
-    }
-
-    &__text {
-        @include font-size($font-size-lg);
-        color: $grey-75;
-        line-height: 1.6;
-        padding-top: rem(23px);
-        width: 89%;
-        text-align: center;
+        &.my-pagination {
+            left: rem(10px);
+        }
     }
 
     @include media-up(tablet) {
         height: auto;
-
-        &__track {
-            width: 75.5%;
-        }
-
-        &__content {
-            padding-top: 0;
-        }
-
-        &__bottom {
-            padding-top: $font-size-5xl;
-            gap: rem($font-size-3xl);
-        }
-
-        &__text {
-            @include font-size(23px);
-            padding-top: rem(30px);
-            width: 83%;
-        }
-    }
-
-    @include media-up(desktop) {
-        &__track {
-            width: 80%;
-            height: rem(645px);
-        }
     }
 }
 
 .splide__arrow.my-arrow {
-    width: $font-size-10xl;
-    height: $font-size-10xl;
     position: absolute;
     top: 36%;
+    width: $font-size-10xl;
+    height: $font-size-10xl;
 
     @include media-up(tablet) {
+        top: 50%;
         width: rem(100px);
         height: rem(100px);
-        top: 50%;
+    }
+
+    &.splide__arrow--next.my-next {
+        background-color: $blue;
+        color: $white;
+    }
+
+    &.splide__arrow--prev.my-prev {
+        background-color: $white;
+        border: 1px solid $grey-10;
     }
 }
 
-.splide__arrow.my-arrow.splide__arrow--next.my-next {
-    background-color: $blue;
-    color: white;
-}
-.splide__arrow.my-arrow.splide__arrow--prev.my-prev {
-    background-color: white;
-    border: 1px solid $grey-10;
-}
 .splide .splide__pagination__page.is-active {
     background-color: $pink;
 }
+
 .splide__pagination.my-pagination {
     left: 10px;
 }
+
 .splide__pagination__page.dots {
     height: $font-size-2xl;
     width: $font-size-2xl;

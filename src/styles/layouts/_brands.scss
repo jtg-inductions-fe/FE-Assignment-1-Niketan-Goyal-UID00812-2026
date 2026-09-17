@@ -1,17 +1,5 @@
 @use '../abstract' as *;
 
-.bg-yellow {
-    position: absolute;
-    height: rem(503px);
-    width: rem(494px);
-    right: rem(-534px);
-    top: rem(-105px);
-    background: $yellow;
-    opacity: 50%;
-    border-radius: 50%;
-    filter: blur(rem(200px));
-}
-
 .brands {
     @include flex-container();
     overflow-x: clip;
@@ -22,6 +10,18 @@
         @include media-up(tablet) {
             width: auto;
         }
+    }
+    &::after {
+        content: '';
+        position: absolute;
+        height: rem(503px);
+        width: rem(494px);
+        right: rem(-534px);
+        top: rem(-105px);
+        background: $yellow;
+        opacity: 50%;
+        border-radius: 50%;
+        filter: blur(rem(200px));
     }
 
     &__main {

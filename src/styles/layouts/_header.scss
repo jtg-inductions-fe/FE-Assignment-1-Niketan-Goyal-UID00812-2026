@@ -6,6 +6,32 @@
     padding: 0;
     font-weight: $font-weight-bold;
 
+    &::after {
+        content: '';
+        position: absolute;
+        top: rem(-36px);
+        left: rem(-33px);
+        width: rem(272px);
+        height: rem(348px);
+        border-radius: 50%;
+        background-color: $orange;
+        filter: blur(rem(150px));
+        opacity: 50%;
+
+        @include media-up(tablet) {
+            top: rem(-174px);
+            left: rem(-163px);
+            width: rem(500px);
+            height: rem(500px);
+            filter: blur(rem(200px));
+        }
+
+        @include media-up(desktop) {
+            top: rem(9px);
+            left: rem(-60px);
+        }
+    }
+
     &__icons {
         @include flex-container(space-between, center);
         width: 100%;
