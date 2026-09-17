@@ -2,6 +2,7 @@
 
 .about {
     width: 100%;
+    max-width: rem(2000px);
     @include flex-container(flex-start, stretch, rem($font-size-2xl), column);
     padding: rem(75px) 0 rem(64px) 0;
 
@@ -64,18 +65,13 @@
     }
 
     @include media-up(desktop-lg) {
-        &__top {
-            align-items: start;
-        }
-    }
-
-    @include media-up(desktop-lg) {
         flex-direction: row;
         width: 92vw;
         gap: 0;
         padding: rem(72px) 0 rem(64px) 0;
 
         &__top {
+            align-items: start;
             width: auto;
         }
 

@@ -1,0 +1,23 @@
+[
+    {
+        "name": "Mark Smith",
+        "role": "Travel Enthusiast",
+        "img": "/assets/images/carousel-image-1.webp",
+        "rating": 5,
+        "content": "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC"
+    },
+    {
+        "name": "David Wilson",
+        "role": "Adventure Seeker",
+        "img": "/assets/images/carousel-image-1.webp",
+        "rating": 4,
+        "content": "Everything was well organized and easy to manage. I really enjoyed the experience and would definitely recommend it."
+    },
+    {
+        "name": "Emily Brown",
+        "role": "Frequent Traveler",
+        "img": "/assets/images/carousel-image-1.webp",
+        "rating": 3,
+        "content": "A wonderful experience with great attention to detail. The whole journey was smooth, comfortable, and enjoyable."
+    }
+]
