@@ -53,7 +53,10 @@
 
     &__text {
         width: rem(224px);
-
+        padding: rem(16px) rem(32px);
+        white-space: nowrap;
+        border-radius: rem(40px);
+        font-weight: $font-weight-bold;
         @include flex-container(space-around, center, rem(15px));
         @include font-size($font-size-sm);
         box-shadow: $shadow-card;
@@ -174,95 +177,111 @@
         }
     }
 
+    &__telegram {
+        position: absolute;
+        top: 42%;
+        left: -5%;
+        width: rem($font-size-3xl);
+        height: rem($font-size-3xl);
+        @include flex-container(center, center);
+        border-radius: 50%;
+        background-color: $pink;
+        box-shadow: $shadow-floating-icon;
+
+        img {
+            width: rem($font-size-md);
+            height: rem($font-size-md);
+        }
+
+        @include media-up(medium) {
+            width: rem(64px);
+            height: rem(64px);
+            box-shadow: $shadow-floating-icon-mobile;
+
+            img {
+                width: initial;
+                height: initial;
+            }
+        }
+    }
+
+    &__user {
+        position: absolute;
+        top: rem(294px);
+        left: rem(196px);
+        width: rem($font-size-3xl);
+        height: rem($font-size-3xl);
+        @include flex-container(center, center);
+        border-radius: 50%;
+        background-color: $orange;
+        box-shadow: $shadow-floating-icon;
+
+        img {
+            width: rem($font-size-md);
+            height: rem($font-size-md);
+        }
+
+        @include media-up(medium) {
+            top: rem(574px);
+            right: rem(128px);
+            left: auto;
+
+            width: rem(64px);
+            height: rem(64px);
+
+            box-shadow: $shadow-floating-icon-mobile;
+
+            img {
+                width: initial;
+                height: initial;
+            }
+        }
+    }
+
+    &__top-places {
+        position: absolute;
+        top: 65%;
+        left: 86%;
+        width: rem(85px);
+        height: rem(28px);
+        @include font-size(7px);
+        font-weight: $font-weight-bold;
+        color: $grey;
+        border-radius: 100px;
+        background-color: $white;
+        box-shadow: $shadow-card-large;
+        @include flex-container(center, center, rem(4px));
+
+        img {
+            width: rem(10px);
+        }
+
+        @include media-up(medium) {
+            width: rem(166px);
+            height: $font-size-9xl;
+            @include font-size($font-size-sm);
+            box-shadow: $shadow-card-mobile;
+            img {
+                width: initial;
+            }
+        }
+
+        @include media-up(desktop-lg) {
+            left: 88%;
+            @include font-size(14px);
+        }
+    }
+
     &__images {
         position: relative;
         @include flex-container(start, stretch, rem(15px));
         width: rem(295px);
         height: rem(324px);
 
-        &--tele,
-        &--user {
-            position: absolute;
-            width: rem($font-size-3xl);
-            height: rem($font-size-3xl);
-            box-shadow: $shadow-floating-icon;
-            @include flex-container(center, center);
-            border-radius: 50%;
-            background-color: $pink;
-
-            img {
-                width: rem($font-size-md);
-                height: rem($font-size-md);
-            }
-        }
-
-        &--tele {
-            top: 42%;
-            left: -5%;
-        }
-
-        &--user {
-            top: rem(294px);
-            left: rem(196px);
-            background-color: $orange;
-        }
-
-        &--top-places {
-            position: absolute;
-            top: 65%;
-            left: 86%;
-            width: rem(85px);
-            height: rem(28px);
-            @include font-size(7px);
-            font-weight: $font-weight-bold;
-            color: $grey;
-            border-radius: 100px;
-            background-color: $white;
-            box-shadow: $shadow-card-large;
-            @include flex-container(center, center, rem(4px));
-
-            img {
-                width: 10px;
-            }
-
-            @include media-up(medium) {
-                width: rem(166px);
-                height: $font-size-9xl;
-                @include font-size($font-size-sm);
-                box-shadow: $shadow-card-mobile;
-                img {
-                    width: initial;
-                }
-            }
-
-            @include media-up(desktop-lg) {
-                left: 88%;
-                @include font-size(14px);
-            }
-        }
-
         @include media-up(medium) {
             width: rem(575px);
             height: rem(640px);
             gap: rem(31px);
-
-            &--tele,
-            &--user {
-                box-shadow: $shadow-floating-icon-mobile;
-                width: rem(64px);
-                height: rem(64px);
-
-                img {
-                    width: initial;
-                    height: initial;
-                }
-            }
-
-            &--user {
-                top: rem(574px);
-                right: rem(128px);
-                left: initial;
-            }
         }
     }
 
@@ -305,30 +324,5 @@
                 height: rem(400px);
             }
         }
-    }
-}
-
-.bg-orange {
-    position: absolute;
-    top: rem(-36px);
-    left: rem(-33px);
-    width: rem(272px);
-    height: rem(348px);
-    border-radius: 50%;
-    background-color: $orange;
-    filter: blur(rem(150px));
-    opacity: 50%;
-
-    @include media-up(tablet) {
-        top: rem(-174px);
-        left: rem(-163px);
-        width: rem(500px);
-        height: rem(500px);
-        filter: blur(rem(200px));
-    }
-
-    @include media-up(desktop) {
-        top: rem(9px);
-        left: rem(-60px);
     }
 }
