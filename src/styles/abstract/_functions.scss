@@ -3,3 +3,7 @@
 @function rem($px) {
     @return math.div($px, 16px) * 1rem;
 }
+
+@function px-to-unitless($line-height-px, $font-size-px: 16px) {
+    @return math.div($line-height-px, $font-size-px);
+}

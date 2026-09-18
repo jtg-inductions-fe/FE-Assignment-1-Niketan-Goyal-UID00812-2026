@@ -73,16 +73,15 @@ async function showRating() {
 }
 showRating();
 
-const arrow = document.querySelectorAll('.footer__accordianBtn');
-arrow.forEach((element) => {
-    element.addEventListener('click', () => {
-        element.firstElementChild.classList.toggle('footer__rotate');
-        if (element.getAttribute('aria-expanded') == 'true') {
-            element.setAttribute('aria-expanded', false);
-        } else {
-            element.setAttribute('aria-expanded', true);
-        }
-        let closest = element.previousElementSibling;
-        closest.classList.toggle('footer__columns--active');
+const arrow = document.querySelectorAll('.footer__accordian-button');
+arrow.forEach((button) => {
+    button.addEventListener('click', () => {
+        const isExpanded =
+            button.firstElementChild.classList.toggle('footer__rotate');
+        const navelement = button.getAttribute('aria-controls');
+        button.setAttribute('aria-expanded', isExpanded);
+        document
+            .getElementById(navelement)
+            .classList.toggle('footer__columns--active');
     });
 });

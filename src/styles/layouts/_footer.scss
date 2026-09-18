@@ -28,19 +28,19 @@
         @include flex-container(flex-start, stretch, rem($font-size-md));
     }
 
-    &__mainheading {
+    &__brand-name {
         font-weight: $font-weight-bold;
         @include font-size($font-size-2xl);
-        line-height: 40px;
+        line-height: px-to-unitless(40px);
     }
 
-    &__subheading {
+    &__description {
         color: $grey-50;
         @include font-size($font-size-md);
         line-height: 1.6;
     }
 
-    &__icons {
+    &__socials {
         width: rem(160px);
         @include flex-container(space-between, stretch, rem($font-size-3xl));
     }
@@ -80,16 +80,11 @@
         }
     }
 
-    &__address {
-        @include flex-container(flex-start, stretch, rem(8px), column);
-        flex-direction: row;
-    }
-
     &__rotate {
         transform: rotate(180deg);
     }
 
-    &__accordianBtn {
+    &__accordian-button {
         display: block;
         position: absolute;
         right: 0;
@@ -105,13 +100,13 @@
     @include media-up(tablet) {
         padding: rem(11px) 0 rem(60px) 0;
         @include flex-container(flex-start, stretch, 58px, column);
-        width: 87vw;
+        width: 87%;
 
         &__image {
             display: block;
         }
 
-        &__subheading {
+        &__description {
             @include font-size(23px);
         }
 
@@ -146,11 +141,7 @@
             }
         }
 
-        &__address {
-            flex-direction: column;
-        }
-
-        &__accordianBtn {
+        &__accordian-button {
             display: none;
         }
     }
