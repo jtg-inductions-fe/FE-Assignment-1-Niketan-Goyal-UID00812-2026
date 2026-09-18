@@ -15,6 +15,7 @@ as many choices as possible "
     </head>
     <body>
         <div class="container">
+            <div class="backdrop" id="backdrop"></div>
             <header class="header">
                 <div class="header__icons">
                     <a href="/" class="header__logo">
@@ -24,11 +25,15 @@ as many choices as possible "
                         class="header__menu"
                         type="button"
                         aria-label="open menu"
+                        id="header-menu-button"
+                        aria-expanded="false"
+                        aria-controls="header-menu"
                     >
                         <img
                             class="header__menu--img"
                             src="/assets/icons/menu.svg"
-                            alt="menu"
+                            alt=""
+                            aria-hidden="true"
                         />
                     </button>
                 </div>
@@ -49,12 +54,62 @@ as many choices as possible "
                             >
                         </li>
                         <li class="header__item">
-                            <a href="#contactUs" class="header__link"
+                            <a href="#contact-us" class="header__link"
                                 >Contact</a
                             >
                         </li>
                     </ul>
                 </nav>
+                <div class="header__mobile-menu" id="header-menu">
+                    <nav class="header__mobile-navigation">
+                        <ul class="header__mobile-list">
+                            <li class="header__mobile-item">
+                                <a href="/" class="header__mobile-link">Home</a>
+                            </li>
+
+                            <li class="header__mobile-item">
+                                <a href="#discover" class="header__mobile-link">
+                                    Discover
+                                </a>
+                            </li>
+
+                            <li class="header__mobile-item">
+                                <a
+                                    href="#special_deals"
+                                    class="header__mobile-link"
+                                >
+                                    Special Deals
+                                </a>
+                            </li>
+
+                            <li class="header__mobile-item">
+                                <a
+                                    href="#contact-us"
+                                    class="header__mobile-link"
+                                >
+                                    Contact
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+
+                    <div class="header__mobile-actions">
+                        <button class="button button--secondary">Log In</button>
+                        <button class="button button--primary">Sign Up</button>
+                    </div>
+                    <button
+                        type="button"
+                        aria-label="Close menu"
+                        class="header__close"
+                    >
+                        <img
+                            src="/assets/icons/close.svg"
+                            alt=""
+                            aria-hidden="true"
+                            class="header__close--img"
+                        />
+                    </button>
+                </div>
 
                 <div class="header__actions">
                     <button class="button button--secondary">Log In</button>
@@ -62,7 +117,7 @@ as many choices as possible "
                 </div>
             </header>
             <main>
-                <section class="hero">
+                <section class="hero" id="hero">
                     <div class="hero__section">
                         <div class="hero__left">
                             <div class="hero__content">
@@ -166,7 +221,7 @@ as many choices as possible "
                     </div>
                 </section>
 
-                <section class="brands">
+                <section class="brands" id="brands">
                     <div class="brands__main">
                         <img
                             class="brands__img"
@@ -195,7 +250,7 @@ as many choices as possible "
                         />
                     </div>
                 </section>
-                <section class="about">
+                <section class="about" id="about">
                     <div class="about__left">
                         <img
                             src="/assets/images/travel-point.webp"
@@ -252,7 +307,7 @@ as many choices as possible "
                         </div>
                     </div>
                 </section>
-                <section class="testimonial">
+                <section class="testimonial" id="discover">
                     <div class="testimonial__main">
                         <div class="splide" aria-label="Customer testimonials">
                             <div class="splide__track">
@@ -436,4 +491,5 @@ as many choices as possible "
         </div>
         <script type="module" src="./src/script/index.js"></script>
     </body>
+    <script type="module" src="./src/script/index.js"></script>
 </html>
