@@ -10,7 +10,7 @@
     &::after {
         content: '';
         position: absolute;
-        z-index: -1;
+        z-index: $z-index-below;
         inset: 0;
         display: none;
         width: 100%;

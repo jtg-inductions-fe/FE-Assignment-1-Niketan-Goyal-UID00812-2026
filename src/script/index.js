@@ -1,7 +1,14 @@
 import Splide from '@splidejs/splide';
 import '@splidejs/splide/css';
 const links = document.querySelectorAll('.header__link');
-
+const focusableSelector = [
+    'a[href]',
+    'button:not([disabled])',
+    'input:not([disabled])',
+    'select:not([disabled])',
+    'textarea:not([disabled])',
+    '[tabindex]:not([tabindex="-1"])',
+].join(',');
 function updateActiveLink() {
     const currentHash = window.location.hash;
     links.forEach((element) => {
@@ -86,24 +93,20 @@ arrow.forEach((button) => {
     });
 });
 
-const menu = document.querySelector('#header-menu');
-const hamburger = document.querySelector('#header-hamburger');
+const menu = document.querySelector('#header-menu-button');
+const hamburger = document.querySelector('#header-menu');
 const backdrop = document.querySelector('#backdrop');
 const close = document.querySelector('.header__close');
 const mobilenavlink = document.querySelectorAll('.header__mobile-link');
+
+menu.addEventListener('click', () => {
+    openMenu();
+});
 
 mobilenavlink.forEach((element) => {
     element.addEventListener('click', () => {
         closeMenu();
     });
-});
-
-menu.addEventListener('click', () => {
-    const isActive = hamburger.classList.toggle('header__hamburger--active');
-
-    backdrop.classList.toggle('backdrop--active', isActive);
-
-    document.body.classList.toggle('no-scroll', isActive);
 });
 
 backdrop.addEventListener('click', () => {
@@ -114,18 +117,30 @@ close.addEventListener('click', () => {
     closeMenu();
 });
 
+function openMenu() {
+    const isActive = hamburger.classList.toggle('header__mobile-menu--active');
+    menu.setAttribute('aria-expanded', isActive);
+    menu.setAttribute('aria-label', isActive ? 'Close menu' : 'Open menu');
+    backdrop.classList.toggle('backdrop--active', isActive);
+    document.body.classList.toggle('no-scroll', isActive);
+    if (isActive) {
+        close.focus();
+    }
+}
+
 function closeMenu() {
-    hamburger.classList.remove('header__hamburger--active');
+    hamburger.classList.remove('header__mobile-menu--active');
     backdrop.classList.remove('backdrop--active');
+    menu.setAttribute('aria-label', 'Open menu');
+    menu.setAttribute('aria-expanded', 'false');
     document.body.classList.remove('no-scroll');
+    menu.focus();
 }
 
 hamburger.addEventListener('keydown', (event) => {
     if (event.key !== 'Tab') return;
     const focusableElements = [
-        ...hamburger.querySelectorAll(
-            'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])',
-        ),
+        ...hamburger.querySelectorAll(focusableSelector),
     ].filter((element) => {
         return (
             element.offsetParent !== null &&
@@ -133,6 +148,7 @@ hamburger.addEventListener('keydown', (event) => {
             getComputedStyle(element).visibility !== 'hidden'
         );
     });
+    if (!focusableElements.length) return;
 
     const firstElement = focusableElements[0];
     const lastElement = focusableElements[focusableElements.length - 1];
@@ -147,3 +163,17 @@ hamburger.addEventListener('keydown', (event) => {
         firstElement.focus();
     }
 });
+
+window.addEventListener('resize', updateDom);
+
+const icons = document.querySelector('.header__icons');
+const logo = document.querySelector('.header__logo');
+const menuicon = document.querySelector('.header__menu');
+
+function updateDom() {
+    if (window.innerWidth > 430) {
+        icons.append(menuicon, logo);
+    } else {
+        icons.append(logo, menuicon);
+    }
+}

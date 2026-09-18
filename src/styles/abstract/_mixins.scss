@@ -34,3 +34,24 @@
 @mixin font-size($size) {
     font-size: fn.rem($size);
 }
+
+@mixin transition($property) {
+    -webkit-transition: $property;
+    -moz-transition: $property;
+    -ms-transition: $property;
+    -o-transition: $property;
+    transition: $property;
+}
+
+@mixin fade-hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    @include transition(opacity 0.3s ease);
+}
+
+@mixin fade-visible {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
