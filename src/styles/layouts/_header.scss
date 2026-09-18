@@ -20,7 +20,7 @@ body.no-scroll {
         border-radius: 50%;
         background-color: $orange;
         filter: blur(rem(150px));
-        z-index: -1;
+        z-index: $z-index-below;
         opacity: 50%;
 
         @include media-up(tablet) {
@@ -85,50 +85,55 @@ body.no-scroll {
         @include flex-container(center, center, rem(70px), column);
     }
 
-    &__hamburger {
+    &__mobile-menu {
         @include flex-container(space-between, center, rem(70px), column);
         padding: rem(50px) 0px;
         position: absolute;
-        z-index: 10;
+        z-index: $z-index-modal;
         top: 0;
         right: 0;
-        width: 70vw;
+        width: $drawer-width-mobile;
         height: 100vh;
         background-color: $white;
-        opacity: 0;
-        visibility: hidden;
-        pointer-events: none;
-        transition: opacity 0.2s ease;
+        @include fade-hidden;
         &--active {
-            opacity: 1;
-            visibility: visible;
-            pointer-events: auto;
+            @include fade-visible;
         }
 
         @include media-up(tablet) {
             left: 0;
-            width: 40vw;
+            width: $drawer-width-tablet;
         }
     }
     &__close {
-        width: rem(25px);
         position: absolute;
         left: rem(8px);
-        top: rem(47px);
+        top: rem(15px);
         padding: rem(3px);
-        border: 1px solid grey;
+        width: rem(30px);
+        height: rem(30px);
         border-radius: 9px;
+        transition: background-color 150ms ease;
+        &:hover {
+            background-color: $grey-10;
+        }
+
         @include media-up(tablet) {
-            left: initial;
+            left: auto;
             right: rem(18px);
         }
+
+        &--img {
+            width: rem(20px);
+            height: rem(20px);
+        }
     }
+
     // Tablet
     @include media-up(tablet) {
         padding: rem($font-size-3xl) rem(62px) rem($font-size-3xl) rem(66px);
 
         &__icons {
-            flex-direction: row-reverse;
             width: 52%;
             padding: 0;
         }
@@ -176,21 +181,14 @@ body.no-scroll {
 .backdrop {
     position: fixed;
     inset: 0;
-    background: rgba(0, 0, 0, 0.2);
+    background: $grey-50;
     backdrop-filter: blur(5px);
     -webkit-backdrop-filter: blur(5px);
-    opacity: 0;
-    visibility: hidden;
-    pointer-events: none;
 
-    transition:
-        opacity 0.3s ease,
-        visibility 0s linear 0s;
+    @include fade-hidden;
 
-    z-index: 1;
+    z-index: $z-index-above;
 }
 .backdrop--active {
-    opacity: 1;
-    visibility: visible;
-    pointer-events: auto;
+    @include fade-visible;
 }
