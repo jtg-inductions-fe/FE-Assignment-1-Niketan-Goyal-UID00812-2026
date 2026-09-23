@@ -17,21 +17,18 @@ $secondary-color: $grey-dark;
 $tertiary-color: $orange;
 $subheading-color: $grey;
 
-$wheel-color-first: #f4436c;
-$wheel-color-second: #7c3aed;
-$wheel-color-third: #06b6d4;
-$wheel-color-forth: #fbbf24;
-$wheel-spin-button: #f4436c;
-$wheel-triangle: #aaaaaa;
+$wheel-pink-rose: #f4436c;
+$wheel-violet-purple: #7c3aed;
+$wheel-cyan-teal: #06b6d4;
+$wheel-amber-yellow: #fbbf24;
 $wheel-box-shadow: #00000040;
-$card-expires: #7c3aed;
 $card-label: #1f2937;
 $card-border: #f4436c33;
 $card-expired-border: #00000033;
 $card-expired: #999999;
 
-$card-bg-color: linear-gradient(
+$card-background-gradient: linear-gradient(
     90deg,
-    rgba(244, 67, 108, 0.05) 0%,
-    rgba(124, 58, 237, 0.05) 100%
+    rgba(var($wheel-pink-rose), 0.05) 0%,
+    rgba(var($wheel-violet-purple), 0.05) 100%
 );

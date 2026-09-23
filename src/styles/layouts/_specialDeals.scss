@@ -1,14 +1,13 @@
 @use '../abstract' as *;
 
-.specialDealspopUp {
+.specialDealsPopUp {
     width: rem(360px);
     background-color: $white;
     margin: auto auto 0 auto;
     padding: rem(34px) rem($font-size-2xl);
-    border-radius: rem($font-size-2xl);
-    border-bottom-left-radius: 0;
-    border-bottom-right-radius: 0;
+    border-radius: rem($font-size-2xl) rem($font-size-2xl) 0 0;
     border: none;
+
     &::backdrop {
         background: $grey-50;
     }
@@ -22,7 +21,6 @@
         line-height: 1.2;
         font-weight: $font-weight-bold;
         padding: rem(10px) rem($font-size-3xl);
-        border-width: 1px;
     }
 
     &__heading {
@@ -60,7 +58,7 @@
         width: rem(30px);
         height: rem(30px);
         border-radius: rem(9px);
-        transition: background-color 150ms ease;
+        transition: background-color $close-button-hover-time ease;
 
         &:hover {
             background-color: $grey-10;
@@ -93,12 +91,12 @@
         border-bottom: 0;
         border-left: 10px solid transparent;
         border-right: 10px solid transparent;
-        border-top: 10px solid $wheel-color-first;
+        border-top: 10px solid $wheel-pink-rose;
     }
 
     &__button {
-        color: $wheel-spin-button;
-        border: 3px solid $wheel-spin-button;
+        color: $wheel-pink-rose;
+        border: 3px solid $wheel-pink-rose;
         border-radius: 50%;
         width: rem(43px);
         height: rem(43px);
@@ -110,56 +108,35 @@
         @include flex-container(center, center);
     }
 
-    &__circle {
-        height: rem(227px);
-        width: rem(227px);
-        border-radius: 50%;
-        position: relative;
-        overflow: hidden;
-        background-color: $white-light;
-        text-align: center;
-        border: 2px solid $white;
-        box-shadow: 0px 0px 50px 7px $wheel-box-shadow;
+    &__segment {
+        border: 1px solid $white;
+        color: $white;
         @include flex-container(center, center);
-        @include font-size($font-size-xs);
-
-        &--item {
-            border: 1px solid $white;
-            color: $white;
-            @include flex-container(center, center);
-            padding: $font-size-xl;
-            text-align: center;
-        }
-
-        &--first,
-        &--second,
-        &--third,
-        &--forth {
-            width: 50%;
-            height: 50%;
-            position: absolute;
-        }
-
+        padding: $font-size-xl;
+        text-align: center;
+        width: 50%;
+        height: 50%;
+        position: absolute;
         &--first {
-            background-color: $wheel-color-first;
+            background-color: $wheel-pink-rose;
             top: -1px;
             left: -1px;
         }
 
         &--second {
-            background-color: $wheel-color-second;
+            background-color: $wheel-violet-purple;
             top: -1px;
             right: -1px;
         }
 
         &--third {
-            background-color: $wheel-color-third;
+            background-color: $wheel-cyan-teal;
             bottom: -1px;
             left: -1px;
         }
 
-        &--forth {
-            background-color: $wheel-color-forth;
+        &--fourth {
+            background-color: $wheel-amber-yellow;
             bottom: -1px;
             right: -1px;
             color: $black;
@@ -181,6 +158,19 @@
             transform: rotate(135deg);
         }
     }
+    &__circle {
+        height: rem(227px);
+        width: rem(227px);
+        border-radius: 50%;
+        position: relative;
+        overflow: hidden;
+        background-color: $white-light;
+        text-align: center;
+        border: 2px solid $white;
+        box-shadow: 0px 0px 50px 7px $wheel-box-shadow;
+        @include flex-container(center, center);
+        @include font-size($font-size-xs);
+    }
 }
 
 .card {
@@ -195,7 +185,7 @@
         border-radius: rem($font-size-md);
         height: rem(67px);
         @include flex-container(space-between, center);
-        background: $card-bg-color;
+        background: $card-background-gradient;
         border: 1px solid $card-border;
     }
 
@@ -231,7 +221,7 @@
 
     &__expires {
         @include font-size($font-size-xs);
-        color: $card-expires;
+        color: $wheel-violet-purple;
     }
 
     &__coupon {

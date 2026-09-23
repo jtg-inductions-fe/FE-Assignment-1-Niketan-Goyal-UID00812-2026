@@ -1,9 +1,9 @@
 const navLink = document.getElementById('open-special-deals');
 const navLinkMobile = document.getElementById('open-special-deals-mobile');
-const specialDealsContainer = document.getElementById('specialDealspopUp');
+const specialDealsContainer = document.getElementById('specialDealsPopUp');
 const specialDeals = document.getElementById('special-deals');
 const unlockedDeals = document.getElementById('unlocked-deals');
-const specialDealsclose = document.getElementById('specialDealspopUp-close');
+const specialDealsClose = document.getElementById('specialDealsPopUp-close');
 const wheel = document.getElementById('wheel__circle');
 const card = document.getElementById('card');
 const count = document.getElementById('card-dealsCount');
@@ -13,13 +13,12 @@ const unlockedBackBtn = document.getElementById('unlockedDeals-back');
 let deals = null;
 let wheelDeals;
 let previousExtra = 0;
-let isSpining = false;
-const fullcircle = 10;
+let isSpinning = false;
+const MAX_FULL_ROTATIONS = 10;
 let fetchDealsPromise = null;
+const DEGREES_IN_CIRCLE = 360;
+const DEGREES_PER_SEGMENT = 90;
 
-navLink.addEventListener('click', () => {
-    openSpecialDeals();
-});
 let dialogOpener = null;
 
 navLink.addEventListener('click', (event) => {
@@ -30,7 +29,7 @@ navLinkMobile.addEventListener('click', (event) => {
     openSpecialDeals(event.currentTarget);
 });
 
-specialDealsclose.addEventListener('click', closeMenu);
+specialDealsClose.addEventListener('click', closeMenu);
 
 unlockedBackBtn.addEventListener('click', toggleState);
 
@@ -39,7 +38,7 @@ async function openSpecialDeals(opener) {
 
     specialDealsContainer.showModal();
 
-    specialDealsclose.focus();
+    specialDealsClose.focus();
 
     try {
         await fetchDeals();
@@ -84,7 +83,7 @@ async function fetchDeals() {
 
 function getAvailableDeals() {
     try {
-        const wondeals = JSON.parse(localStorage.getItem('won-deals')) ?? [];
+        const wondeals = GetAlreadyWonDeals();
         count.textContent = wondeals.length;
         const filteredDeals = deals
             .map((deal) => ({
@@ -122,51 +121,38 @@ function buildWheelDeals(filteredDeals) {
     return wheelDeals;
 }
 
-function createWheel() {
-    let filteredDeals = getAvailableDeals();
-    wheelDeals = buildWheelDeals(filteredDeals);
+function prepareWheelDeals() {
+    const filteredDeals = getAvailableDeals();
+    return buildWheelDeals(filteredDeals);
+}
 
-    wheel.innerHTML = ` <div
-                            class="wheel__circle--item wheel__circle--first"
-                            id="first"
-                        >
-                            <div class="wheel__circle--text1">${wheelDeals[3].label}</div>
+function renderWheel(wheelDeals) {
+    return `            <div class="wheel__segment  wheel__segment--first"  id="first" >
+                            <div class=" wheel__segment--text1">${wheelDeals[3].label}</div>
                         </div>
-                        <div
-                            class="wheel__circle--item wheel__circle--second"
-                            id="second"
-                        >
-                            <div class="wheel__circle--text2">${wheelDeals[0].label}</div>
+                        <div class=" wheel__segment wheel__segment--second"id="second" >
+                            <div class="wheel__segment--text2">${wheelDeals[0].label}</div>
                         </div>
-                       
-                         <div
-                            class="wheel__circle--item wheel__circle--third"
-                            id="third"
-                        >
-                            <div class="wheel__circle--text3">${wheelDeals[2].label}</div>
+                         <div class=" wheel__segment wheel__segment--third" id="third">
+                            <div class="wheel__segment--text3">${wheelDeals[2].label}</div>
                         </div>
-                        <div
-                            class="wheel__circle--item wheel__circle--forth"
-                            id="forth"
-                        >
-                            <div class="wheel__circle--text4">${wheelDeals[1].label}</div>
+                        <div class=" wheel__segment wheel__segment--fourth" id="fourth">
+                            <div class="wheel__segment--text4">${wheelDeals[1].label}</div>
                         </div>
-                        
-                        <button
-                            type="button"
-                            aria-label="spin the wheel"
-                            id="wheel__button"
-                            class="wheel__button"
-                        >
+                        <button type="button" aria-label="spin the wheel" id="wheel__button"class="wheel__button">
                             Spin
                         </button>
-                        
                         `;
+}
+
+function createWheel() {
+    wheelDeals = prepareWheelDeals();
+    wheel.innerHTML = renderWheel(wheelDeals);
     document.getElementById('wheel__button').addEventListener('click', rotate);
 }
 
 function rotate() {
-    if (isSpining) return;
+    if (isSpinning) return;
 
     createWheel();
 
@@ -174,21 +160,21 @@ function rotate() {
     wheel.style.rotate = `${previousExtra}deg`;
     void wheel.offsetHeight;
 
-    const fullRotations = Math.floor(Math.random() * fullcircle);
-    const extraRotation = Math.floor(Math.random() * 360);
+    const fullRotations = Math.floor(Math.random() * MAX_FULL_ROTATIONS);
+    const extraRotation = Math.floor(Math.random() * DEGREES_IN_CIRCLE);
     const spinButton = document.getElementById('wheel__button');
 
     previousExtra = extraRotation;
-    isSpining = true;
+    isSpinning = true;
     spinButton.disabled = true;
 
-    wheel.style.transition = 'rotate 4s cubic-bezier(0.17, 0.67, 0.12, 0.99)';
-    wheel.style.rotate = `${(fullRotations + 1) * 360 + extraRotation}deg`;
+    wheel.style.transition = `rotate 4s cubic-bezier(0.17, 0.67, 0.12, 0.99)`;
+    wheel.style.rotate = `${(fullRotations + 1) * DEGREES_IN_CIRCLE + extraRotation}deg`;
 
-    const wondeal = 3 - Math.floor(extraRotation / 90);
-
-    setTimeout(() => {
-        isSpining = false;
+    const wondeal =
+        wheelDeals.length - 1 - Math.floor(extraRotation / DEGREES_PER_SEGMENT);
+    wheel.addEventListener('transitionend', () => {
+        isSpinning = false;
         spinButton.disabled = false;
 
         card.innerHTML = `
@@ -203,24 +189,27 @@ function rotate() {
                         <div class="card__coupon">
                             ${wheelDeals[wondeal].promoCode}
                         </div>
-                        <button type="button" class="card__copy" id="card__copy" type="button" aria-label="copy coupon code"> 
-                            <img src="/assets/icons/copy.svg" alt="" aria-hidden='true'>
+                        <button type="button" class="card__copy" id="card__copy" aria-label="copy coupon code"> 
+                            <img src="/assets/icons/copy.svg" alt="" aria-hidden='true' id="card__copy--img">
                         </button>
                     </div>
                     </div>`;
 
-        document
-            .getElementById('card__copy')
-            .addEventListener('click', (event) => {
-                copy(wheelDeals[wondeal].promoCode);
+        const copyButton = document.getElementById('card__copy');
+
+        copyButton.addEventListener('click', (event) => {
+            copy(wheelDeals[wondeal].promoCode);
+            const img = event.currentTarget.querySelector('img');
+            if (img) {
                 event.target.src = '/assets/icons/copied.svg';
                 setTimeout(() => {
                     event.target.src = '/assets/icons/copy.svg';
                 }, 3000);
-            });
+            }
+        });
 
         storeInLocal(wondeal);
-    }, 4000);
+    });
 }
 
 function getRemainingDays(expiredOn) {
@@ -229,7 +218,7 @@ function getRemainingDays(expiredOn) {
 }
 
 function storeInLocal(wondeal) {
-    const items = JSON.parse(localStorage.getItem('won-deals')) ?? [];
+    const items = GetAlreadyWonDeals();
     const date = new Date();
     date.setDate(date.getDate() + (wheelDeals[wondeal].validFor ?? 7));
     items.push({ ...wheelDeals[wondeal], expiredOn: date });
@@ -247,18 +236,20 @@ unlockedBtn.addEventListener('click', function () {
 });
 
 function toggleState() {
+    if (isSpinning) return;
     specialDeals.classList.toggle('hidden');
     unlockedDeals.classList.toggle('hidden');
 }
 
 function updateUnlocked() {
     const unlockedDealsCards = document.getElementById('unlockedDeals-cards');
-    const items = JSON.parse(localStorage.getItem('won-deals')) ?? [];
+
+    const items = GetAlreadyWonDeals();
     if (items.length == 0) {
         unlockedDealsCards.textContent =
             'you have not any deals. spin to win the deal';
     } else {
-        items.sort((a, b) => {
+        const sortedItems = items.toSorted((a, b) => {
             const dateA = new Date(a.expiredOn);
             const dateB = new Date(b.expiredOn);
             const now = Date.now();
@@ -273,7 +264,7 @@ function updateUnlocked() {
 
         let string = '';
 
-        items.forEach((element) => {
+        sortedItems.forEach((element) => {
             const isExpired =
                 new Date(element.expiredOn).getTime() < Date.now();
             string += `
@@ -297,7 +288,7 @@ function updateUnlocked() {
                     aria-label="copy coupon code"
                     data-code="${element.promoCode}"
                 >
-                    <img src="/assets/icons/copy.svg" alt=""  aria-hidden="true" class="card__copy">
+                    <img src="/assets/icons/copy.svg" alt=""  aria-hidden="true" class="card__copy--img">
                 </button>
             </div>
         </div>
@@ -306,12 +297,20 @@ function updateUnlocked() {
 
         unlockedDealsCards.innerHTML = string;
         unlockedDealsCards.addEventListener('click', (event) => {
-            const parent = event.target.parentElement;
-            copy(parent.dataset.code);
-            event.target.src = '/assets/icons/copied.svg';
-            setTimeout(() => {
-                event.target.src = '/assets/icons/copy.svg';
-            }, 3000);
+            const copyButton = event.target.closest('.card__copy');
+            if (!copyButton) return;
+            copy(copyButton.dataset.code);
+            const img = copyButton.querySelector('img');
+            if (img) {
+                img.src = '/assets/icons/copied.svg';
+                setTimeout(() => {
+                    img.src = '/assets/icons/copy.svg';
+                }, 3000);
+            }
         });
     }
+}
+
+function GetAlreadyWonDeals() {
+    return JSON.parse(localStorage.getItem('won-deals')) ?? [];
 }

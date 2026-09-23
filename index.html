@@ -496,11 +496,11 @@ as many choices as possible "
             </footer>
             <dialog
                 closedby="any"
-                class="specialDealspopUp"
-                id="specialDealspopUp"
+                class="specialDealsPopUp"
+                id="specialDealsPopUp"
                 aria-labelledby="special-deals-title"
             >
-                <h3 class="specialDealspopUp__heading" id="special-deals-title">
+                <h3 class="specialDealsPopUp__heading" id="special-deals-title">
                     <img
                         src="/assets/icons/gift.svg"
                         alt=""
@@ -511,30 +511,31 @@ as many choices as possible "
                 <button
                     type="button"
                     aria-label="Close special deals"
-                    class="specialDealspopUp__close"
-                    id="specialDealspopUp-close"
+                    class="specialDealsPopUp__close"
+                    id="specialDealsPopUp-close"
                 >
                     <img
                         src="/assets/icons/close.svg"
                         alt=""
                         aria-hidden="true"
-                        class="specialDealspopUp__close--img"
+                        class="specialDealsPopUp__close--img"
                     />
                 </button>
                 <section class="specialDeals" id="special-deals">
-                    <p class="specialDealspopUp__subheading">Spin & Win!</p>
-                    <p class="specialDealspopUp__description">
+                    <p class="specialDealsPopUp__subheading">Spin & Win!</p>
+                    <p class="specialDealsPopUp__description">
                         Tap the center of the wheel to spin
                     </p>
                     <div class="wheel">
-                        <div class="wheel__triangle"></div>
+                        <div class="wheel__triangle" aria-hidden="true"></div>
                         <div class="wheel__circle" id="wheel__circle">
                             Loading...
                         </div>
                     </div>
                     <div class="card" id="card"></div>
                     <button
-                        class="specialDealspopUp__button"
+                        type="button"
+                        class="specialDealsPopUp__button"
                         id="card-unlocked"
                     >
                         View All Unlocked Deals
@@ -544,8 +545,8 @@ as many choices as possible "
                     </button>
                 </section>
                 <section class="unlockedDeals hidden" id="unlocked-deals">
-                    <p class="specialDealspopUp__subheading">Unlocked Deals</p>
-                    <p class="specialDealspopUp__description">
+                    <p class="specialDealsPopUp__subheading">Unlocked Deals</p>
+                    <p class="specialDealsPopUp__description">
                         All the deals you’ve unlocked yet!
                     </p>
                     <div
@@ -555,7 +556,7 @@ as many choices as possible "
                     <button
                         type="button"
                         id="unlockedDeals-back"
-                        class="specialDealspopUp__button"
+                        class="specialDealsPopUp__button"
                     >
                         Go Back
                     </button>
@@ -564,6 +565,5 @@ as many choices as possible "
         </div>
         <script type="module" src="./src/script/index.js"></script>
         <script type="module" src="./src/script/spinTheWheel.js"></script>
-        <script type="module" src="./src/script/index.js"></script>
     </body>
 </html>
