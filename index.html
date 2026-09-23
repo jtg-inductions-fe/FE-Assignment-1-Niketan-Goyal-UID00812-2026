@@ -14,216 +14,257 @@ as many choices as possible "
         <link rel="icon" type="image/svg+xml" href="/assets/icons/logo.svg" />
     </head>
     <body>
-        <header class="header">
-            <div class="header__icons">
-                <a href="/" class="header__logo">
-                    <img src="/assets/icons/logo.svg" alt="logo" />
-                </a>
-                <button class="header__menu" aria-label="open menu">
-                    <img
-                        class="header__menu--img"
-                        src="/assets/icons/menu.svg"
-                        alt="menu"
-                    />
-                </button>
-            </div>
-            <!-- only show in desktop or larger screens -->
-            <nav class="header__navigation">
-                <ul class="header__list">
-                    <li class="header__item">
-                        <a href="/" class="header__link">Home</a>
-                    </li>
-                    <li class="header__item">
-                        <a href="#discover" class="header__link">Discover</a>
-                    </li>
-                    <li class="header__item">
-                        <a href="#special_deals" class="header__link"
-                            >Special Deals</a
-                        >
-                    </li>
-                    <li class="header__item">
-                        <a href="#contact" class="header__link">Contact</a>
-                    </li>
-                </ul>
-            </nav>
-
-            <div class="header__actions">
-                <button class="button button--secondary">Log In</button>
-                <button class="button button--primary">Sign Up</button>
-            </div>
-        </header>
-        <div class="bg-orange"></div>
-        <main class="hero">
-            <section class="hero__section">
-                <div class="hero__left">
-                    <div class="hero__content">
-                        <div class="hero__text button">
-                            <p class="color-pink">Explore the World</p>
-                            <img
-                                src="/assets/icons/work-1.svg"
-                                alt="a small Explore icon"
-                            />
-                        </div>
-                        <h1 class="hero__heading">
-                            Travel
-                            <span class="color-pink">top destination</span> of
-                            the world
-                        </h1>
-                        <div class="hero__description description">
-                            <p>
-                                We always make our customer happy by<br />
-                                providing<br />
-                                as many choices as possible
-                            </p>
-                        </div>
-                        <div class="hero__actions">
-                            <button
-                                class="hero__button hero__button--get-started button button--primary"
+        <div class="container">
+            <header class="header">
+                <div class="header__icons">
+                    <a href="/" class="header__logo">
+                        <img src="/assets/icons/logo.svg" alt="logo" />
+                    </a>
+                    <button
+                        class="header__menu"
+                        type="button"
+                        aria-label="open menu"
+                    >
+                        <img
+                            class="header__menu--img"
+                            src="/assets/icons/menu.svg"
+                            alt="menu"
+                        />
+                    </button>
+                </div>
+                <!-- only show in desktop or larger screens -->
+                <nav class="header__navigation">
+                    <ul class="header__list">
+                        <li class="header__item">
+                            <a href="/" class="header__link">Home</a>
+                        </li>
+                        <li class="header__item">
+                            <a href="#discover" class="header__link"
+                                >Discover</a
                             >
-                                Get Started
-                            </button>
-
-                            <button
-                                class="hero__button hero__button--watch-demo button button--secondary"
+                        </li>
+                        <li class="header__item">
+                            <a href="#special_deals" class="header__link"
+                                >Special Deals</a
                             >
-                                <img
-                                    src="/assets/icons/watch-demo.svg"
-                                    alt="watch-demo"
-                                />
-                                Watch Demo
-                            </button>
-
-                            <div class="hero__side-arrows">
-                                <img
-                                    src="/assets/images/side-arrows.svg"
-                                    alt="side-arrows"
-                                />
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="hero__right">
-                    <figure class="hero__gallery">
-                        <div class="hero__images">
-                            <div class="hero__images-left">
-                                <img
-                                    src="/assets/images/hero-section-1.webp"
-                                    alt="Traveler enjoying a peaceful view of the sea"
-                                    class="hero_right--image"
-                                />
-
-                                <img
-                                    src="/assets/images/hero-section-2.webp"
-                                    alt="Traveler sitting on a mountain "
-                                />
-                            </div>
-
-                            <div class="hero__images-right">
-                                <img
-                                    src="/assets/images/hero-section-3.webp"
-                                    alt="Traveler taking a photo"
-                                />
-                            </div>
-
-                            <div class="hero__images--tele">
-                                <img
-                                    src="/assets/icons/telegram.svg"
-                                    alt="telegram icon"
-                                />
-                            </div>
-                            <div class="hero__images--user">
-                                <img
-                                    src="/assets/icons/user-logo.svg"
-                                    alt="user icon"
-                                />
-                            </div>
-                            <div class="hero__images--top-places">
-                                <img
-                                    src="/assets/icons/location.svg"
-                                    alt="location"
-                                />
-                                Top Places
-                            </div>
-                        </div>
-                    </figure>
-                </div>
-            </section>
-        </main>
-        <section class="brands">
-            <div class="brands__main">
-                <img
-                    class="brands__img"
-                    src="/assets/images/logos/tripadvisor.svg"
-                    alt="Tripadvisor"
-                />
-                <img
-                    class="brands__img"
-                    src="/assets/images/logos/expedia.svg"
-                    alt="Expedia"
-                />
-                <img
-                    class="brands__img"
-                    src="/assets/images/logos/booking.svg"
-                    alt="Booking.com"
-                />
-                <img
-                    class="brands__img"
-                    src="/assets/images/logos/airbnb.svg"
-                    alt="Airbnb"
-                />
-                <img
-                    class="brands__img"
-                    src="/assets/images/logos/grapbitz.svg"
-                    alt="Orbitz"
-                />
-                <div class="bg-yellow"></div>
-            </div>
-        </section>
-        <section class="about">
-            <div class="about__left">
-                <img
-                    src="/assets/images/travel-point.webp"
-                    alt="Travel point"
-                    class="about__img"
-                />
-            </div>
-            <div class="about__right">
-                <div class="about__top">
-                    <h2 class="heading">Travel point</h2>
-                    <p class="subheading">
-                        We helping you find your dream location
-                    </p>
-                    <p class="description">
-                        Contrary to popular belief, Lorem Ipsum is not simply
-                        random text. It has roots in a piece of classical Latin
-                        literature from 45 BC.
-                    </p>
-                </div>
-                <div class="about__bottom">
-                    <ul class="about__stats">
-                        <li class="stats">
-                            <p class="stats__count">500+</p>
-                            <p class="stats__description">Holiday Package</p>
                         </li>
-                        <li class="stats">
-                            <p class="stats__count">100</p>
-                            <p class="stats__description">Luxury Hotel</p>
-                        </li>
-                        <li class="stats">
-                            <p class="stats__count">7</p>
-                            <p class="stats__description">Premium Airlines</p>
-                        </li>
-                        <li class="stats">
-                            <p class="stats__count">2k+</p>
-                            <p class="stats__description">Happy Customer</p>
+                        <li class="header__item">
+                            <a href="#contact" class="header__link">Contact</a>
                         </li>
                     </ul>
-                    <div class="about__icon" aria-hidden="true">
-                        <img src="/assets/icons/star.svg" alt="Rating star" />
-                    </div>
+                </nav>
+
+                <div class="header__actions">
+                    <button class="button button--secondary">Log In</button>
+                    <button class="button button--primary">Sign Up</button>
                 </div>
-            </div>
-        </section>
+            </header>
+            <main>
+                <section class="hero">
+                    <div class="hero__section">
+                        <div class="hero__left">
+                            <div class="hero__content">
+                                <div class="hero__text">
+                                    <p class="color-pink">Explore the World</p>
+                                    <img
+                                        src="/assets/icons/work-1.svg"
+                                        alt=""
+                                        aria-hidden="true"
+                                    />
+                                </div>
+                                <h1 class="hero__heading">
+                                    Travel
+                                    <span class="color-pink"
+                                        >top destination</span
+                                    >
+                                    of the world
+                                </h1>
+                                <div class="hero__description description">
+                                    <p>
+                                        We always make our customer happy by<br />
+                                        providing<br />
+                                        as many choices as possible
+                                    </p>
+                                </div>
+                                <div class="hero__actions">
+                                    <button
+                                        class="hero__button hero__button--get-started button button--primary"
+                                    >
+                                        Get Started
+                                    </button>
+
+                                    <button
+                                        class="hero__button hero__button--watch-demo button button--secondary"
+                                    >
+                                        <img
+                                            src="/assets/icons/watch-demo.svg"
+                                            alt=""
+                                            aria-hidden="true"
+                                        />
+                                        Watch Demo
+                                    </button>
+
+                                    <div class="hero__side-arrows">
+                                        <img
+                                            src="/assets/images/side-arrows.svg"
+                                            alt=""
+                                            aria-hidden="true"
+                                        />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="hero__right">
+                            <figure class="hero__gallery">
+                                <div class="hero__images">
+                                    <div class="hero__images-left">
+                                        <img
+                                            src="/assets/images/hero-section-1.webp"
+                                            alt="Traveler enjoying a peaceful view of the sea"
+                                            class="hero_right--image"
+                                        />
+
+                                        <img
+                                            src="/assets/images/hero-section-2.webp"
+                                            alt="Traveler sitting on a mountain "
+                                        />
+                                    </div>
+
+                                    <div class="hero__images-right">
+                                        <img
+                                            src="/assets/images/hero-section-3.webp"
+                                            alt="Traveller clicking a picture"
+                                        />
+                                    </div>
+
+                                    <div class="hero__telegram">
+                                        <img
+                                            src="/assets/icons/telegram.svg"
+                                            alt="telegram icon"
+                                        />
+                                    </div>
+                                    <div class="hero__user">
+                                        <img
+                                            src="/assets/icons/user-logo.svg"
+                                            alt=""
+                                            aria-hidden="true"
+                                        />
+                                    </div>
+                                    <div class="hero__top-places">
+                                        <img
+                                            src="/assets/icons/location.svg"
+                                            alt=""
+                                            aria-hidden="true"
+                                        />
+                                        Top Places
+                                    </div>
+                                </div>
+                            </figure>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="brands">
+                    <div class="brands__main">
+                        <img
+                            class="brands__img"
+                            src="/assets/images/logos/tripadvisor.svg"
+                            alt="Tripadvisor"
+                        />
+                        <img
+                            class="brands__img"
+                            src="/assets/images/logos/expedia.svg"
+                            alt="Expedia"
+                        />
+                        <img
+                            class="brands__img"
+                            src="/assets/images/logos/booking.svg"
+                            alt="Booking.com"
+                        />
+                        <img
+                            class="brands__img"
+                            src="/assets/images/logos/airbnb.svg"
+                            alt="Airbnb"
+                        />
+                        <img
+                            class="brands__img"
+                            src="/assets/images/logos/grapbitz.svg"
+                            alt="grapbitz"
+                        />
+                    </div>
+                </section>
+                <section class="about">
+                    <div class="about__left">
+                        <img
+                            src="/assets/images/travel-point.webp"
+                            alt="Travel point"
+                            class="about__img"
+                            loading="lazy"
+                        />
+                    </div>
+                    <div class="about__right">
+                        <div class="about__top">
+                            <h2 class="heading">Travel point</h2>
+                            <p class="subheading">
+                                We helping you find your dream location
+                            </p>
+                            <p class="description">
+                                Contrary to popular belief, Lorem Ipsum is not
+                                simply random text. It has roots in a piece of
+                                classical Latin literature from 45 BC.
+                            </p>
+                        </div>
+                        <div class="about__bottom">
+                            <ul class="about__stats">
+                                <li class="stats">
+                                    <p class="stats__count">500+</p>
+                                    <p class="stats__description">
+                                        Holiday Package
+                                    </p>
+                                </li>
+                                <li class="stats">
+                                    <p class="stats__count">100</p>
+                                    <p class="stats__description">
+                                        Luxury Hotel
+                                    </p>
+                                </li>
+                                <li class="stats">
+                                    <p class="stats__count">7</p>
+                                    <p class="stats__description">
+                                        Premium Airlines
+                                    </p>
+                                </li>
+                                <li class="stats">
+                                    <p class="stats__count">2k+</p>
+                                    <p class="stats__description">
+                                        Happy Customer
+                                    </p>
+                                </li>
+                            </ul>
+                            <div class="about__icon" aria-hidden="true">
+                                <img
+                                    src="/assets/icons/star.svg"
+                                    alt="Rating star"
+                                />
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section class="testimonial">
+                    <div class="testimonial__main">
+                        <div class="splide" aria-label="Customer testimonials">
+                            <div class="splide__track">
+                                <div class="testimonial__header">
+                                    <h3 class="heading">testimonials</h3>
+                                    <p class="subheading">Trust our clients</p>
+                                </div>
+                                <ul class="splide__list"></ul>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </main>
+        </div>
         <script type="module" src="./src/script/index.js"></script>
     </body>
 </html>
