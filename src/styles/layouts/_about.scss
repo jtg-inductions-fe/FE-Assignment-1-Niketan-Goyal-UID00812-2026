@@ -1,0 +1,121 @@
+@use '../abstract' as *;
+
+.about {
+    width: 100%;
+    @include flex-container(flex-start, stretch, rem($font-size-2xl), column);
+    padding: rem(75px) 0 rem(64px) 0;
+
+    &__img {
+        width: 100%;
+    }
+
+    &__top {
+        width: 101%;
+        @include flex-container(center, center, 0, column);
+    }
+
+    &__left {
+        width: 100%;
+        padding-top: rem(58px);
+    }
+
+    &__right {
+        width: 100%;
+        padding: 0 rem(30px);
+        @include flex-container(
+            flex-start,
+            stretch,
+            rem($font-size-3xl),
+            column
+        );
+    }
+
+    &__bottom {
+        position: relative;
+    }
+    &__stats {
+        display: grid;
+        gap: 16px;
+        grid-template-columns: repeat(1, 1fr);
+
+        @include media-up(tablet) {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+
+    &__icon {
+        display: none;
+    }
+
+    @include media-up(tablet) {
+        gap: rem(56px);
+
+        &__right {
+            padding: 0 rem(65px);
+            gap: rem(64px);
+        }
+
+        &__stats {
+            gap: rem($font-size-3xl);
+        }
+        &__top {
+            width: 100%;
+        }
+    }
+
+    @include media-up(desktop-lg) {
+        &__top {
+            align-items: start;
+        }
+    }
+
+    @include media-up(desktop-lg) {
+        flex-direction: row;
+        width: 92vw;
+        gap: 0;
+        padding: rem(72px) 0 rem(64px) 0;
+
+        &__top {
+            width: auto;
+        }
+
+        &__left {
+            width: 65.5%;
+            padding-top: 0;
+        }
+
+        &__right {
+            width: 34.5%;
+            padding: 0;
+            padding-top: rem(15px);
+        }
+
+        &__icon {
+            display: block;
+            position: absolute;
+            top: rem(-61px);
+            right: rem(-114px);
+        }
+    }
+}
+
+.stats {
+    height: rem(151px);
+    border-radius: rem($font-size-3xl);
+    padding: rem($font-size-3xl);
+    border: 1px solid $grey-10;
+    @include flex-container(center, center, rem($font-size-md), column);
+
+    &__count {
+        font-family: 'circularStd';
+        font-weight: $font-weight-bold;
+        color: $orange;
+        @include font-size(35px);
+    }
+
+    &__description {
+        font-family: 'Inter';
+        font-weight: $font-weight-regular;
+        @include font-size($font-size-lg);
+    }
+}
