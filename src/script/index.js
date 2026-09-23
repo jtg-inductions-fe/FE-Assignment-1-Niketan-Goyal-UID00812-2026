@@ -71,5 +71,17 @@ async function showRating() {
     });
     splide.mount();
 }
-
 showRating();
+
+const arrow = document.querySelectorAll('.footer__accordian-button');
+arrow.forEach((button) => {
+    button.addEventListener('click', () => {
+        const isExpanded =
+            button.firstElementChild.classList.toggle('footer__rotate');
+        const navelement = button.getAttribute('aria-controls');
+        button.setAttribute('aria-expanded', isExpanded);
+        document
+            .getElementById(navelement)
+            .classList.toggle('footer__columns--active');
+    });
+});
