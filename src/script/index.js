@@ -40,7 +40,7 @@ const splide = new Splide('.splide', {
 });
 
 async function showRating() {
-    let response = await fetch('src/script/rating.json');
+    let response = await fetch('assets/json/rating.json');
     let reviews = await response.json();
     const list = document.querySelector('.splide__list');
     reviews.forEach((review) => {

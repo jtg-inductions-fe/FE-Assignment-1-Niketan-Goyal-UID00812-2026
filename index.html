@@ -49,7 +49,10 @@ as many choices as possible "
                             >
                         </li>
                         <li class="header__item">
-                            <a href="#special_deals" class="header__link"
+                            <a
+                                href="#special_deals"
+                                class="header__link"
+                                id="open-special-deals"
                                 >Special Deals</a
                             >
                         </li>
@@ -73,9 +76,12 @@ as many choices as possible "
                                 </a>
                             </li>
 
-                            <li class="header__mobile-item">
+                            <li
+                                class="header__mobile-item"
+                                id="open-special-deals-mobile"
+                            >
                                 <a
-                                    href="#special_deals"
+                                    href="#special-deals"
                                     class="header__mobile-link"
                                 >
                                     Special Deals
@@ -488,8 +494,76 @@ as many choices as possible "
                     class="footer__image"
                 />
             </footer>
+            <dialog
+                closedby="any"
+                class="specialDealsPopUp"
+                id="specialDealsPopUp"
+                aria-labelledby="special-deals-title"
+            >
+                <h3 class="specialDealsPopUp__heading" id="special-deals-title">
+                    <img
+                        src="/assets/icons/gift.svg"
+                        alt=""
+                        aria-hidden="true"
+                    />
+                    <span>Special Deals</span>
+                </h3>
+                <button
+                    type="button"
+                    aria-label="Close special deals"
+                    class="specialDealsPopUp__close"
+                    id="specialDealsPopUp-close"
+                >
+                    <img
+                        src="/assets/icons/close.svg"
+                        alt=""
+                        aria-hidden="true"
+                        class="specialDealsPopUp__close--img"
+                    />
+                </button>
+                <section class="specialDeals" id="special-deals">
+                    <p class="specialDealsPopUp__subheading">Spin & Win!</p>
+                    <p class="specialDealsPopUp__description">
+                        Tap the center of the wheel to spin
+                    </p>
+                    <div class="wheel">
+                        <div class="wheel__triangle" aria-hidden="true"></div>
+                        <div class="wheel__circle" id="wheel__circle">
+                            Loading...
+                        </div>
+                    </div>
+                    <div class="card" id="card"></div>
+                    <button
+                        type="button"
+                        class="specialDealsPopUp__button"
+                        id="card-unlocked"
+                    >
+                        View All Unlocked Deals
+                        <span class="card__dealsCount" id="card-dealsCount"
+                            >0</span
+                        >
+                    </button>
+                </section>
+                <section class="unlockedDeals hidden" id="unlocked-deals">
+                    <p class="specialDealsPopUp__subheading">Unlocked Deals</p>
+                    <p class="specialDealsPopUp__description">
+                        All the deals you’ve unlocked yet!
+                    </p>
+                    <div
+                        class="unlockedDeals__cards"
+                        id="unlockedDeals-cards"
+                    ></div>
+                    <button
+                        type="button"
+                        id="unlockedDeals-back"
+                        class="specialDealsPopUp__button"
+                    >
+                        Go Back
+                    </button>
+                </section>
+            </dialog>
         </div>
         <script type="module" src="./src/script/index.js"></script>
+        <script type="module" src="./src/script/spinTheWheel.js"></script>
     </body>
-    <script type="module" src="./src/script/index.js"></script>
 </html>

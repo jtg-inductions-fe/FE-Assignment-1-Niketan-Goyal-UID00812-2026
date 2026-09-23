@@ -182,7 +182,6 @@ body.no-scroll {
     position: fixed;
     inset: 0;
     background: $grey-50;
-    backdrop-filter: blur(5px);
     -webkit-backdrop-filter: blur(5px);
 
     @include fade-hidden;

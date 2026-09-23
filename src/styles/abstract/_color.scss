@@ -16,3 +16,19 @@ $primary-color: $pink;
 $secondary-color: $grey-dark;
 $tertiary-color: $orange;
 $subheading-color: $grey;
+
+$wheel-pink-rose: #f4436c;
+$wheel-violet-purple: #7c3aed;
+$wheel-cyan-teal: #06b6d4;
+$wheel-amber-yellow: #fbbf24;
+$wheel-box-shadow: #00000040;
+$card-label: #1f2937;
+$card-border: #f4436c33;
+$card-expired-border: #00000033;
+$card-expired: #999999;
+
+$card-background-gradient: linear-gradient(
+    90deg,
+    rgba(var($wheel-pink-rose), 0.05) 0%,
+    rgba(var($wheel-violet-purple), 0.05) 100%
+);
