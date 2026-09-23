@@ -33,3 +33,16 @@ $subheading-size: $font-size-lg;
 
 $font-family-primary: 'Inter', sans-serif;
 $font-family-secondary: 'circularStd', sans-serif;
+
+$z-index-below: -1;
+$z-index-default: 0;
+$z-index-above: 1;
+$z-index-sticky: 100;
+$z-index-dropdown: 200;
+$z-index-backdrop: 900;
+$z-index-modal: 1000;
+$z-index-toast: 2000;
+$z-index-popunder: 9999;
+
+$drawer-width-mobile: 70vw;
+$drawer-width-tablet: 40vw;
