@@ -1,13 +1,568 @@
 <!doctype html>
 <html lang="en">
     <head>
-        <title>Title</title>
+        <title>Travel With Us</title>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta
+            name="description"
+            content="Travel With Us - We always make our customer happy by providing
+as many choices as possible "
+        />
+
         <link rel="stylesheet" href="src/styles/main.scss" />
+        <link rel="icon" type="image/svg+xml" href="/assets/icons/logo.svg" />
     </head>
     <body>
-        <div>Hello World</div>
+        <div class="container">
+            <div class="backdrop" id="backdrop"></div>
+            <header class="header">
+                <div class="header__icons">
+                    <a href="/" class="header__logo">
+                        <img src="/assets/icons/logo.svg" alt="logo" />
+                    </a>
+                    <button
+                        class="header__menu"
+                        type="button"
+                        aria-label="open menu"
+                        id="header-menu-button"
+                        aria-expanded="false"
+                        aria-controls="header-menu"
+                    >
+                        <img
+                            class="header__menu--img"
+                            src="/assets/icons/menu.svg"
+                            alt=""
+                            aria-hidden="true"
+                        />
+                    </button>
+                </div>
+                <!-- only show in desktop or larger screens -->
+                <nav class="header__navigation">
+                    <ul class="header__list">
+                        <li class="header__item">
+                            <a href="/" class="header__link">Home</a>
+                        </li>
+                        <li class="header__item">
+                            <a href="#discover" class="header__link"
+                                >Discover</a
+                            >
+                        </li>
+                        <li class="header__item">
+                            <a
+                                href="#specialDealsPopUp"
+                                class="header__link"
+                                id="open-special-deals"
+                                >Special Deals</a
+                            >
+                        </li>
+                        <li class="header__item">
+                            <a href="#contact-us" class="header__link"
+                                >Contact</a
+                            >
+                        </li>
+                    </ul>
+                </nav>
+                <div class="header__mobile-menu" id="header-menu">
+                    <nav class="header__mobile-navigation">
+                        <ul class="header__mobile-list">
+                            <li class="header__mobile-item">
+                                <a href="/" class="header__mobile-link">Home</a>
+                            </li>
+
+                            <li class="header__mobile-item">
+                                <a href="#discover" class="header__mobile-link">
+                                    Discover
+                                </a>
+                            </li>
+
+                            <li
+                                class="header__mobile-item"
+                                id="open-special-deals-mobile"
+                            >
+                                <a
+                                    href="#specialDealsPopUp"
+                                    class="header__mobile-link"
+                                >
+                                    Special Deals
+                                </a>
+                            </li>
+
+                            <li class="header__mobile-item">
+                                <a
+                                    href="#contact-us"
+                                    class="header__mobile-link"
+                                >
+                                    Contact
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+
+                    <div class="header__mobile-actions">
+                        <button class="button button--secondary">Log In</button>
+                        <button class="button button--primary">Sign Up</button>
+                    </div>
+                    <button
+                        type="button"
+                        aria-label="Close menu"
+                        class="header__close"
+                    >
+                        <img
+                            src="/assets/icons/close.svg"
+                            alt=""
+                            aria-hidden="true"
+                            class="header__close--img"
+                        />
+                    </button>
+                </div>
+
+                <div class="header__actions">
+                    <button class="button button--secondary">Log In</button>
+                    <button class="button button--primary">Sign Up</button>
+                </div>
+            </header>
+            <main>
+                <section class="hero" id="hero">
+                    <div class="hero__section">
+                        <div class="hero__left">
+                            <div class="hero__content">
+                                <div class="hero__text">
+                                    <p class="color-pink">Explore the World</p>
+                                    <img
+                                        src="/assets/icons/work-1.svg"
+                                        alt=""
+                                        aria-hidden="true"
+                                    />
+                                </div>
+                                <h1 class="hero__heading">
+                                    Travel
+                                    <span class="color-pink"
+                                        >top destination</span
+                                    >
+                                    of the world
+                                </h1>
+                                <div class="hero__description description">
+                                    <p>
+                                        We always make our customer happy by<br />
+                                        providing<br />
+                                        as many choices as possible
+                                    </p>
+                                </div>
+                                <div class="hero__actions">
+                                    <button
+                                        class="hero__button hero__button--get-started button button--primary"
+                                    >
+                                        Get Started
+                                    </button>
+
+                                    <button
+                                        class="hero__button hero__button--watch-demo button button--secondary"
+                                    >
+                                        <img
+                                            src="/assets/icons/watch-demo.svg"
+                                            alt=""
+                                            aria-hidden="true"
+                                        />
+                                        Watch Demo
+                                    </button>
+
+                                    <div class="hero__side-arrows">
+                                        <img
+                                            src="/assets/images/side-arrows.svg"
+                                            alt=""
+                                            aria-hidden="true"
+                                        />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="hero__right">
+                            <figure class="hero__gallery">
+                                <div class="hero__images">
+                                    <div class="hero__images-left">
+                                        <img
+                                            src="/assets/images/hero-section-1.webp"
+                                            alt="Traveler enjoying a peaceful view of the sea"
+                                            class="hero_right--image"
+                                        />
+
+                                        <img
+                                            src="/assets/images/hero-section-2.webp"
+                                            alt="Traveler sitting on a mountain "
+                                        />
+                                    </div>
+
+                                    <div class="hero__images-right">
+                                        <img
+                                            src="/assets/images/hero-section-3.webp"
+                                            alt="Traveller clicking a picture"
+                                        />
+                                    </div>
+
+                                    <div class="hero__telegram">
+                                        <img
+                                            src="/assets/icons/telegram.svg"
+                                            alt="telegram icon"
+                                        />
+                                    </div>
+                                    <div class="hero__user">
+                                        <img
+                                            src="/assets/icons/user-logo.svg"
+                                            alt=""
+                                            aria-hidden="true"
+                                        />
+                                    </div>
+                                    <div class="hero__top-places">
+                                        <img
+                                            src="/assets/icons/location.svg"
+                                            alt=""
+                                            aria-hidden="true"
+                                        />
+                                        Top Places
+                                    </div>
+                                </div>
+                            </figure>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="brands" id="brands">
+                    <div class="brands__main">
+                        <img
+                            class="brands__img"
+                            src="/assets/images/logos/tripadvisor.svg"
+                            alt="Tripadvisor"
+                        />
+                        <img
+                            class="brands__img"
+                            src="/assets/images/logos/expedia.svg"
+                            alt="Expedia"
+                        />
+                        <img
+                            class="brands__img"
+                            src="/assets/images/logos/booking.svg"
+                            alt="Booking.com"
+                        />
+                        <img
+                            class="brands__img"
+                            src="/assets/images/logos/airbnb.svg"
+                            alt="Airbnb"
+                        />
+                        <img
+                            class="brands__img"
+                            src="/assets/images/logos/grapbitz.svg"
+                            alt="grapbitz"
+                        />
+                    </div>
+                </section>
+                <section class="about" id="about">
+                    <div class="about__left">
+                        <img
+                            src="/assets/images/travel-point.webp"
+                            alt="Travel point"
+                            class="about__img"
+                            loading="lazy"
+                        />
+                    </div>
+                    <div class="about__right">
+                        <div class="about__top">
+                            <h2 class="heading">Travel point</h2>
+                            <p class="subheading">
+                                We helping you find your dream location
+                            </p>
+                            <p class="description">
+                                Contrary to popular belief, Lorem Ipsum is not
+                                simply random text. It has roots in a piece of
+                                classical Latin literature from 45 BC.
+                            </p>
+                        </div>
+                        <div class="about__bottom">
+                            <ul class="about__stats">
+                                <li class="stats">
+                                    <p class="stats__count">500+</p>
+                                    <p class="stats__description">
+                                        Holiday Package
+                                    </p>
+                                </li>
+                                <li class="stats">
+                                    <p class="stats__count">100</p>
+                                    <p class="stats__description">
+                                        Luxury Hotel
+                                    </p>
+                                </li>
+                                <li class="stats">
+                                    <p class="stats__count">7</p>
+                                    <p class="stats__description">
+                                        Premium Airlines
+                                    </p>
+                                </li>
+                                <li class="stats">
+                                    <p class="stats__count">2k+</p>
+                                    <p class="stats__description">
+                                        Happy Customer
+                                    </p>
+                                </li>
+                            </ul>
+                            <div class="about__icon" aria-hidden="true">
+                                <img
+                                    src="/assets/icons/star.svg"
+                                    alt="Rating star"
+                                />
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section class="testimonial" id="discover">
+                    <div class="testimonial__main">
+                        <div class="splide" aria-label="Customer testimonials">
+                            <div class="splide__track">
+                                <div class="testimonial__header">
+                                    <h3 class="heading">testimonials</h3>
+                                    <p class="subheading">Trust our clients</p>
+                                </div>
+                                <ul class="splide__list"></ul>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </main>
+            <footer class="footer" id="contact-us">
+                <div class="footer__left">
+                    <div class="footer__heading">
+                        <img
+                            src="/assets/icons/logo.svg"
+                            alt=""
+                            class="footer__logo"
+                            aria-hidden="true"
+                        />
+                        <p class="footer__brand-name">Travlog</p>
+                    </div>
+                    <p class="footer__description">
+                        Contrary to popular belief, Lorem Ipsum is not simply
+                        random text. It has roots in a piece of classical Latin
+                        literature from 45 BC.
+                    </p>
+                    <div class="footer__socials">
+                        <a
+                            href="https://facebook.com"
+                            rel="noopener noreferrer"
+                            target="_blank"
+                            aria-label="Facebook"
+                        >
+                            <img
+                                src="/assets/icons/facebook.svg"
+                                alt=""
+                                aria-hidden="true"
+                            />
+                        </a>
+
+                        <a
+                            href="https://twitter.com"
+                            rel="noopener noreferrer"
+                            target="_blank"
+                            aria-label="Twitter"
+                        >
+                            <img
+                                src="/assets/icons/twitter.svg"
+                                alt=""
+                                aria-hidden="true"
+                            />
+                        </a>
+                        <a
+                            href="https://instagram.com"
+                            rel="noopener noreferrer"
+                            target="_blank"
+                            aria-label="Instagram"
+                        >
+                            <img
+                                src="/assets/icons/instagram.svg"
+                                alt=""
+                                aria-hidden="true"
+                            />
+                        </a>
+                    </div>
+                </div>
+                <div class="footer__right">
+                    <nav class="footer__column" aria-label="Company">
+                        <h3 class="footer__columns">Company</h3>
+                        <button
+                            type="button"
+                            class="footer__accordian-button"
+                            aria-expanded="false"
+                            aria-controls="footer-company"
+                            aria-label="Toggle Company links"
+                        >
+                            <img
+                                src="/assets/icons/down-arrow.svg"
+                                alt=""
+                                class="footer__accordian"
+                                aria-hidden="true"
+                            />
+                        </button>
+                        <div class="footer__columns--items" id="footer-company">
+                            <a class="footer__items description" href="#about"
+                                >About</a
+                            >
+                            <a class="footer__items description" href="#Career"
+                                >Career</a
+                            >
+                            <a class="footer__items description" href="#mobile"
+                                >Mobile</a
+                            >
+                        </div>
+                    </nav>
+
+                    <nav class="footer__column" aria-label="Contact">
+                        <h3 class="footer__columns">Contact</h3>
+                        <button
+                            type="button"
+                            class="footer__accordian-button"
+                            aria-expanded="false"
+                            aria-controls="footer-contact"
+                            aria-label="Toggle contact links"
+                        >
+                            <img
+                                src="/assets/icons/down-arrow.svg"
+                                alt=""
+                                class="footer__accordian"
+                                aria-hidden="true"
+                            />
+                        </button>
+                        <div class="footer__columns--items" id="footer-contact">
+                            <a class="footer__items description" href="#why"
+                                >Why Travlog?</a
+                            >
+                            <a
+                                class="footer__items description"
+                                href="#partner-with-us"
+                                >Partner With Us</a
+                            >
+                            <a class="footer__items description" href="#faq"
+                                >FAQ's</a
+                            >
+                            <a class="footer__items description" href="#blog"
+                                >Blog</a
+                            >
+                        </div>
+                    </nav>
+                    <div class="footer__column">
+                        <h3 class="footer__columns">Meet Us</h3>
+                        <button
+                            type="button"
+                            class="footer__accordian-button"
+                            aria-expanded="false"
+                            aria-controls="footer-meetus"
+                            aria-label="Toggle meet Us"
+                        >
+                            <img
+                                src="/assets/icons/down-arrow.svg"
+                                alt=""
+                                class="footer__accordian"
+                                aria-hidden="true"
+                            />
+                        </button>
+                        <address
+                            class="footer__columns--items"
+                            id="footer-meetus"
+                        >
+                            <a
+                                href="tel:+0092123456789"
+                                class="footer__items description"
+                            >
+                                +00 92 1234 56789
+                            </a>
+
+                            <a
+                                href="mailto:info@travlog.com"
+                                class="footer__items description"
+                            >
+                                info@travlog.com
+                            </a>
+
+                            <p class="footer__items description">
+                                205. R Street, New York<br />
+                                BD23200
+                            </p>
+                        </address>
+                    </div>
+                </div>
+                <img
+                    src="/assets/images/objects.svg"
+                    alt=""
+                    aria-hidden="true"
+                    class="footer__image"
+                />
+            </footer>
+            <dialog
+                class="specialDealsPopUp"
+                id="specialDealsPopUp"
+                aria-labelledby="special-deals-title"
+            >
+                <h3 class="specialDealsPopUp__heading" id="special-deals-title">
+                    <img
+                        src="/assets/icons/gift.svg"
+                        alt=""
+                        aria-hidden="true"
+                    />
+                    <span>Special Deals</span>
+                </h3>
+                <button
+                    type="button"
+                    aria-label="Close special deals"
+                    class="specialDealsPopUp__close"
+                    id="specialDealsPopUp-close"
+                >
+                    <img
+                        src="/assets/icons/close.svg"
+                        alt=""
+                        aria-hidden="true"
+                        class="specialDealsPopUp__close--img"
+                    />
+                </button>
+                <section class="specialDeals" id="special-deals">
+                    <p class="specialDealsPopUp__subheading">Spin & Win!</p>
+                    <p class="specialDealsPopUp__description">
+                        Tap the center of the wheel to spin
+                    </p>
+                    <div class="wheel">
+                        <div class="wheel__triangle" aria-hidden="true"></div>
+                        <div class="wheel__circle" id="wheel__circle">
+                            Loading...
+                        </div>
+                    </div>
+                    <div class="card" id="card"></div>
+                    <button
+                        type="button"
+                        class="specialDealsPopUp__button"
+                        id="card-unlocked"
+                    >
+                        View All Unlocked Deals
+                        <span class="card__dealsCount" id="card-dealsCount"
+                            >0</span
+                        >
+                    </button>
+                </section>
+                <section class="unlockedDeals hidden" id="unlocked-deals">
+                    <p class="specialDealsPopUp__subheading">Unlocked Deals</p>
+                    <p class="specialDealsPopUp__description">
+                        All the deals you’ve unlocked yet!
+                    </p>
+                    <div
+                        class="unlockedDeals__cards"
+                        id="unlockedDeals-cards"
+                    ></div>
+                    <button
+                        type="button"
+                        id="unlockedDeals-back"
+                        class="specialDealsPopUp__button"
+                    >
+                        Go Back
+                    </button>
+                </section>
+            </dialog>
+        </div>
         <script type="module" src="./src/script/index.js"></script>
+        <script type="module" src="./src/script/spinTheWheel.js"></script>
     </body>
 </html>

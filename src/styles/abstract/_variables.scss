@@ -1,0 +1,50 @@
+$font-size-xs: 12px;
+$font-size-sm: 14px;
+$font-size-md: 16px;
+$font-size-lg: 18px;
+$font-size-xl: 20px;
+$font-size-2xl: 24px;
+$font-size-3xl: 32px;
+$font-size-4xl: 36px;
+$font-size-5xl: 40px;
+$font-size-6xl: 44px;
+$font-size-7xl: 48px;
+$font-size-8xl: 52px;
+$font-size-9xl: 56px;
+$font-size-10xl: 64px;
+$font-size-11xl: 72px;
+$font-size-12xl: 80px;
+
+$breakpoints: (
+    'mobile': 430px,
+    'tablet': 431px,
+    'medium': 980px,
+    'desktop': 1025px,
+    'desktop-lg': 1440px,
+);
+
+$font-weight-bold: 700;
+$font-weight-medium: 500;
+$font-weight-regular: 400;
+
+$buton-font: $font-size-sm;
+$navbar-font: $font-size-sm;
+$subheading-size: $font-size-lg;
+
+$font-family-primary: 'Inter', sans-serif;
+$font-family-secondary: 'circularStd', sans-serif;
+
+$z-index-below: -1;
+$z-index-default: 0;
+$z-index-above: 1;
+$z-index-sticky: 100;
+$z-index-dropdown: 200;
+$z-index-backdrop: 900;
+$z-index-modal: 1000;
+$z-index-toast: 2000;
+$z-index-popunder: 9999;
+
+$drawer-width-mobile: 70vw;
+$drawer-width-tablet: 40vw;
+
+$close-button-hover-time: 150ms;

@@ -1,0 +1,60 @@
+@use '../abstract' as *;
+
+.heading {
+    color: $pink;
+
+    font-weight: $font-weight-bold;
+    font-size: rem($font-size-md);
+    letter-spacing: rem(3px);
+
+    padding-bottom: rem(16px);
+    text-align: center;
+    text-transform: uppercase;
+
+    @include media-up(tablet) {
+        font-size: rem(23px);
+        letter-spacing: rem(5px);
+        text-align: left;
+    }
+}
+
+.subheading {
+    font-weight: $font-weight-bold;
+    @include font-size($font-size-3xl);
+    line-height: 1.2;
+    padding-bottom: rem($font-size-3xl);
+    text-align: center;
+
+    @include media-up(tablet) {
+        @include font-size($font-size-5xl);
+    }
+
+    @include media-up(desktop-lg) {
+        @include font-size($font-size-6xl);
+        text-align: left;
+    }
+}
+
+.description {
+    font-family: 'Inter';
+    @include font-size($font-size-md);
+    color: $grey-50;
+    line-height: 1.6;
+    text-align: center;
+
+    @include media-up(tablet) {
+        @include font-size($font-size-lg);
+    }
+
+    @include media-up(desktop-lg) {
+        text-align: left;
+    }
+}
+
+.color-pink {
+    color: $pink;
+}
+
+.color-grey {
+    color: $grey;
+}

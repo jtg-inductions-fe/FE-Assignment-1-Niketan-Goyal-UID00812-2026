@@ -1,0 +1,283 @@
+@use '../abstract' as *;
+
+.specialDealsPopUp {
+    width: rem(360px);
+    background-color: $white;
+    margin: auto auto 0 auto;
+    padding: rem(34px) rem($font-size-2xl);
+    border-radius: rem($font-size-2xl) rem($font-size-2xl) 0 0;
+    border: none;
+
+    &::backdrop {
+        background: $grey-50;
+    }
+
+    &__button {
+        border-radius: rem(100px);
+        @include flex-container(center, center, rem(8px));
+        border: 1px solid $white-light;
+        @include font-size($font-size-sm);
+        width: 100%;
+        line-height: 1.2;
+        font-weight: $font-weight-bold;
+        padding: rem(10px) rem($font-size-3xl);
+        &:disabled {
+            cursor: not-allowed;
+            opacity: 0.9;
+        }
+    }
+
+    &__heading {
+        @include flex-container(center, center, rem(10px));
+        font-size: $font-size-xs;
+        font-family: 'Inter';
+        font-weight: $font-weight-bold;
+        color: $pink;
+        line-height: 100%;
+        letter-spacing: px-to-unitless(2px);
+        text-transform: uppercase;
+        text-align: center;
+        padding-bottom: rem(15px);
+    }
+
+    &__subheading {
+        padding: 0;
+        @include font-size($font-size-2xl);
+        font-weight: $font-weight-bold;
+    }
+
+    &__description {
+        font-family: 'Inter';
+        @include font-size($font-size-md);
+        color: $grey-50;
+        line-height: 1.6;
+        text-align: center;
+    }
+
+    &__close {
+        position: absolute;
+        right: rem($font-size-lg);
+        top: rem(15px);
+        padding: rem(3px);
+        width: rem(30px);
+        height: rem(30px);
+        border-radius: rem(9px);
+        transition: background-color $close-button-hover-time ease;
+
+        &:hover {
+            background-color: $grey-10;
+        }
+
+        &--img {
+            width: rem($font-size-xl);
+            height: rem($font-size-xl);
+        }
+    }
+
+    @include media-up(tablet) {
+        border-radius: rem($font-size-2xl);
+        margin: auto;
+    }
+}
+.specialDeals {
+    width: 100%;
+    @include flex-container(start, center, $font-size-sm, column);
+}
+
+.wheel {
+    height: rem(236px);
+    width: rem(227px);
+
+    &__triangle {
+        width: 0;
+        height: 0;
+        margin: auto;
+        border-bottom: 0;
+        border-left: 10px solid transparent;
+        border-right: 10px solid transparent;
+        border-top: 10px solid $wheel-pink-rose;
+    }
+
+    &__button {
+        color: $wheel-pink-rose;
+        border: 3px solid $wheel-pink-rose;
+        border-radius: 50%;
+        width: rem(43px);
+        height: rem(43px);
+        position: absolute;
+        top: 40%;
+        right: 40%;
+        background-color: $white;
+        z-index: $z-index-above;
+        @include flex-container(center, center);
+    }
+
+    &__segment {
+        border: 1px solid $white;
+        color: $white;
+        @include flex-container(center, center);
+        padding: $font-size-xl;
+        text-align: center;
+        width: 50%;
+        height: 50%;
+        position: absolute;
+        &--first {
+            background-color: $wheel-pink-rose;
+            top: -1px;
+            left: -1px;
+        }
+
+        &--second {
+            background-color: $wheel-violet-purple;
+            top: -1px;
+            right: -1px;
+        }
+
+        &--third {
+            background-color: $wheel-cyan-teal;
+            bottom: -1px;
+            left: -1px;
+        }
+
+        &--fourth {
+            background-color: $wheel-amber-yellow;
+            bottom: -1px;
+            right: -1px;
+            color: $black;
+        }
+
+        &--text1 {
+            transform: rotate(-45deg);
+        }
+
+        &--text2 {
+            transform: rotate(45deg);
+        }
+
+        &--text3 {
+            transform: rotate(-135deg);
+        }
+
+        &--text4 {
+            transform: rotate(135deg);
+        }
+    }
+    &__circle {
+        height: rem(227px);
+        width: rem(227px);
+        border-radius: 50%;
+        position: relative;
+        overflow: hidden;
+        background-color: $white-light;
+        text-align: center;
+        border: 2px solid $white;
+        box-shadow: 0px 0px 50px 7px $wheel-box-shadow;
+        @include flex-container(center, center);
+        @include font-size($font-size-xs);
+    }
+}
+
+.card {
+    width: 100%;
+
+    &__copy {
+        width: rem(15px);
+    }
+
+    &__main {
+        padding: rem($font-size-md);
+        border-radius: rem($font-size-md);
+        height: rem(67px);
+        @include flex-container(space-between, center);
+        background: $card-background-gradient;
+        border: 1px solid $card-border;
+    }
+
+    &__expired {
+        background-color: $white-light;
+        border: 1px solid $card-expired-border;
+    }
+
+    &__state {
+        text-align: center;
+        font-weight: $font-weight-bold;
+        padding-bottom: rem(8px);
+    }
+
+    &__details {
+        height: rem(35px);
+        @include font-size($font-size-sm);
+        @include flex-container(center, start, rem(5px), column);
+    }
+
+    &__couponDetails {
+        @include font-size($font-size-xs);
+        @include flex-container(center, center, rem($font-size-xl));
+    }
+
+    &__label {
+        font-family: 'Inter';
+        font-weight: $font-weight-bold;
+        @include font-size($font-size-sm);
+        line-height: 1.2;
+        text-align: start;
+    }
+
+    &__expires {
+        @include font-size($font-size-xs);
+        color: $wheel-violet-purple;
+    }
+
+    &__coupon {
+        padding: rem(4px) rem(10px);
+        border: 1px solid $white-light;
+        background-color: $white;
+        border-radius: rem(8px);
+        font-weight: $font-weight-bold;
+        color: $black;
+        white-space: nowrap;
+    }
+
+    &__dealsCount {
+        background-color: $blue;
+        color: $white;
+        padding: rem(6px) rem(10px) rem(4px) rem(10px);
+        border-radius: 50%;
+    }
+}
+
+.unlockedDeals {
+    @include flex-container(start, center, rem($font-size-sm), column);
+
+    &__cards {
+        @include flex-container(start, stretch, rem(10px), column);
+        max-height: rem(300px);
+        overflow-y: scroll;
+        scrollbar-width: none;
+        text-align: center;
+        width: 100%;
+    }
+}
+.hidden {
+    display: none;
+}
+
+.expired {
+    &__main {
+        background: $white-light;
+        border: 1px solid $card-expired-border;
+    }
+
+    &__expires {
+        color: $card-expired;
+    }
+
+    &__copy {
+        cursor: not-allowed;
+        filter: invert(0.5);
+    }
+}
+
+button:disabled {
+    cursor: not-allowed;
+}

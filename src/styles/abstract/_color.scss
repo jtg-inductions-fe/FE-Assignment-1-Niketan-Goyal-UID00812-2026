@@ -1,0 +1,36 @@
+$pink: #f85e9f;
+$blue: #5d50c6;
+$orange: #ff5722;
+$yellow: #facd49;
+$black: #000000;
+$white: #ffffff;
+$white-light: #eeeeee;
+$blue-hover: #4a3eb0;
+$white-hover: #f3f4f6;
+
+$grey: #191825;
+$grey-dark: #222831;
+$grey-50: #19182580;
+$grey-75: #191825bf;
+$grey-10: #1918251a;
+
+$primary-color: $pink;
+$secondary-color: $grey-dark;
+$tertiary-color: $orange;
+$subheading-color: $grey;
+
+$wheel-pink-rose: #f4436c;
+$wheel-violet-purple: #7c3aed;
+$wheel-cyan-teal: #06b6d4;
+$wheel-amber-yellow: #fbbf24;
+$wheel-box-shadow: #00000040;
+$card-label: #1f2937;
+$card-border: #f4436c33;
+$card-expired-border: #00000033;
+$card-expired: #999999;
+
+$card-background-gradient: linear-gradient(
+    90deg,
+    rgba(var($wheel-pink-rose), 0.05) 0%,
+    rgba(var($wheel-violet-purple), 0.05) 100%
+);

@@ -1,0 +1,193 @@
+@use '../abstract' as *;
+
+body.no-scroll {
+    overflow: hidden;
+}
+
+.header {
+    @include flex-container(space-between, center);
+    margin: 0;
+    padding: 0;
+    font-weight: $font-weight-bold;
+
+    &::after {
+        content: '';
+        position: absolute;
+        top: rem(-36px);
+        left: rem(-33px);
+        width: rem(272px);
+        height: rem(348px);
+        border-radius: 50%;
+        background-color: $orange;
+        filter: blur(rem(150px));
+        z-index: $z-index-below;
+        opacity: 50%;
+
+        @include media-up(tablet) {
+            top: rem(-174px);
+            left: rem(-163px);
+            width: rem(500px);
+            height: rem(500px);
+            filter: blur(rem(200px));
+        }
+
+        @include media-up(desktop) {
+            top: rem(9px);
+            left: rem(-60px);
+        }
+    }
+
+    &__icons {
+        @include flex-container(space-between, center);
+        width: 100%;
+        padding: rem(37px) rem(22px) rem(35px) rem(16px);
+    }
+
+    &__logo,
+    &__menu {
+        width: rem(40px);
+        height: rem(40px);
+    }
+
+    &__menu {
+        display: block;
+
+        &--img {
+            width: 100%;
+            height: 100%;
+            transform: scale(1.2);
+        }
+    }
+
+    &__navigation,
+    &__actions {
+        display: none;
+    }
+
+    &__link {
+        &--active {
+            color: $grey-dark;
+        }
+    }
+    &__mobile-actions {
+        @include flex-container(center, stretch, rem($font-size-md), column);
+        width: 95%;
+
+        & > *:first-child {
+            border: 1px solid $white-light;
+        }
+
+        @include media-up(tablet) {
+            display: none;
+        }
+    }
+    &__mobile-list {
+        @include flex-container(center, center, rem(70px), column);
+    }
+
+    &__mobile-menu {
+        @include flex-container(space-between, center, rem(70px), column);
+        padding: rem(50px) 0px;
+        position: absolute;
+        z-index: $z-index-modal;
+        top: 0;
+        right: 0;
+        width: $drawer-width-mobile;
+        height: 100vh;
+        background-color: $white;
+        @include fade-hidden;
+        &--active {
+            @include fade-visible;
+        }
+
+        @include media-up(tablet) {
+            left: 0;
+            width: $drawer-width-tablet;
+        }
+    }
+    &__close {
+        position: absolute;
+        left: rem(8px);
+        top: rem(15px);
+        padding: rem(3px);
+        width: rem(30px);
+        height: rem(30px);
+        border-radius: 9px;
+        transition: background-color 150ms ease;
+        &:hover {
+            background-color: $grey-10;
+        }
+
+        @include media-up(tablet) {
+            left: auto;
+            right: rem(18px);
+        }
+
+        &--img {
+            width: rem(20px);
+            height: rem(20px);
+        }
+    }
+
+    // Tablet
+    @include media-up(tablet) {
+        padding: rem($font-size-3xl) rem(62px) rem($font-size-3xl) rem(66px);
+
+        &__icons {
+            width: 52%;
+            padding: 0;
+        }
+
+        &__navigation {
+            display: none;
+        }
+
+        &__actions {
+            display: flex;
+            justify-content: flex-end;
+        }
+    }
+
+    // Desktop
+    @include media-up(desktop) {
+        margin: rem(35px) rem(117px) 0 rem(79px);
+        padding: rem($font-size-3xl) 0 rem($font-size-3xl) rem(50px);
+
+        &__icons {
+            width: auto;
+        }
+
+        &__menu {
+            display: none;
+        }
+
+        &__navigation {
+            display: block;
+        }
+
+        &__actions {
+            display: flex;
+        }
+
+        &__list {
+            @include flex-container(center, center, rem($font-size-10xl));
+            @include font-size($font-size-sm);
+            color: $grey-50;
+            height: 100%;
+        }
+    }
+}
+
+.backdrop {
+    position: fixed;
+    inset: 0;
+    background: $grey-50;
+    -webkit-backdrop-filter: blur(5px);
+
+    @include fade-hidden;
+
+    z-index: $z-index-above;
+}
+.backdrop--active {
+    @include fade-visible;
+}
