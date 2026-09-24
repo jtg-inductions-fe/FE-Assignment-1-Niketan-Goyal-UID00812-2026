@@ -50,7 +50,7 @@ as many choices as possible "
                         </li>
                         <li class="header__item">
                             <a
-                                href="#special_deals"
+                                href="#specialDealsPopUp"
                                 class="header__link"
                                 id="open-special-deals"
                                 >Special Deals</a
@@ -81,7 +81,7 @@ as many choices as possible "
                                 id="open-special-deals-mobile"
                             >
                                 <a
-                                    href="#special-deals"
+                                    href="#specialDealsPopUp"
                                     class="header__mobile-link"
                                 >
                                     Special Deals
@@ -386,17 +386,6 @@ as many choices as possible "
                 <div class="footer__right">
                     <nav class="footer__column" aria-label="Company">
                         <h3 class="footer__columns">Company</h3>
-                        <div class="footer__columns--items" id="footer-company">
-                            <a class="footer__items description" href="#about"
-                                >About</a
-                            >
-                            <a class="footer__items description" href="#Career"
-                                >Career</a
-                            >
-                            <a class="footer__items description" href="#mobile"
-                                >Mobile</a
-                            >
-                        </div>
                         <button
                             type="button"
                             class="footer__accordian-button"
@@ -411,10 +400,35 @@ as many choices as possible "
                                 aria-hidden="true"
                             />
                         </button>
+                        <div class="footer__columns--items" id="footer-company">
+                            <a class="footer__items description" href="#about"
+                                >About</a
+                            >
+                            <a class="footer__items description" href="#Career"
+                                >Career</a
+                            >
+                            <a class="footer__items description" href="#mobile"
+                                >Mobile</a
+                            >
+                        </div>
                     </nav>
 
                     <nav class="footer__column" aria-label="Contact">
                         <h3 class="footer__columns">Contact</h3>
+                        <button
+                            type="button"
+                            class="footer__accordian-button"
+                            aria-expanded="false"
+                            aria-controls="footer-contact"
+                            aria-label="Toggle contact links"
+                        >
+                            <img
+                                src="/assets/icons/down-arrow.svg"
+                                alt=""
+                                class="footer__accordian"
+                                aria-hidden="true"
+                            />
+                        </button>
                         <div class="footer__columns--items" id="footer-contact">
                             <a class="footer__items description" href="#why"
                                 >Why Travlog?</a
@@ -431,12 +445,15 @@ as many choices as possible "
                                 >Blog</a
                             >
                         </div>
+                    </nav>
+                    <div class="footer__column">
+                        <h3 class="footer__columns">Meet Us</h3>
                         <button
                             type="button"
                             class="footer__accordian-button"
                             aria-expanded="false"
-                            aria-controls="footer-contact"
-                            aria-label="Toggle contact links"
+                            aria-controls="footer-meetus"
+                            aria-label="Toggle meet Us"
                         >
                             <img
                                 src="/assets/icons/down-arrow.svg"
@@ -445,9 +462,6 @@ as many choices as possible "
                                 aria-hidden="true"
                             />
                         </button>
-                    </nav>
-                    <div class="footer__column">
-                        <h3 class="footer__columns">Meet Us</h3>
                         <address
                             class="footer__columns--items"
                             id="footer-meetus"
@@ -471,20 +485,6 @@ as many choices as possible "
                                 BD23200
                             </p>
                         </address>
-                        <button
-                            type="button"
-                            class="footer__accordian-button"
-                            aria-expanded="false"
-                            aria-controls="footer-meetus"
-                            aria-label="Toggle meet Us"
-                        >
-                            <img
-                                src="/assets/icons/down-arrow.svg"
-                                alt=""
-                                class="footer__accordian"
-                                aria-hidden="true"
-                            />
-                        </button>
                     </div>
                 </div>
                 <img
@@ -495,7 +495,6 @@ as many choices as possible "
                 />
             </footer>
             <dialog
-                closedby="any"
                 class="specialDealsPopUp"
                 id="specialDealsPopUp"
                 aria-labelledby="special-deals-title"

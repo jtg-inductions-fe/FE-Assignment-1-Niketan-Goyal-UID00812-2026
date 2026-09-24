@@ -25,13 +25,12 @@
     }
 
     &__heading {
-        @include flex-container(flex-start, stretch, rem($font-size-md));
+        @include flex-container(flex-start, center, rem($font-size-md));
     }
 
     &__brand-name {
         font-weight: $font-weight-bold;
         @include font-size($font-size-2xl);
-        line-height: px-to-unitless(40px);
     }
 
     &__description {
@@ -98,7 +97,7 @@
     }
 
     @include media-up(tablet) {
-        padding: rem(11px) 0 rem(60px) 0;
+        padding: rem(165px) 0 rem(60px) 0;
         @include flex-container(flex-start, stretch, 58px, column);
         width: 87%;
 
@@ -149,9 +148,13 @@
     @include media-up(desktop) {
         @include flex-container(space-between, start, rem($font-size-10xl));
         width: 82%;
+        padding-top: rem(11px);
 
         &__left {
             width: 58%;
+        }
+        &__socials {
+            padding-top: rem(31px);
         }
 
         &__icons {

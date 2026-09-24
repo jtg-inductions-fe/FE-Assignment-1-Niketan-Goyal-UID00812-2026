@@ -167,7 +167,7 @@ function rotate() {
     previousExtra = extraRotation;
     isSpinning = true;
     spinButton.disabled = true;
-
+    unlockedBtn.setAttribute('disabled', true);
     wheel.style.transition = `rotate 4s cubic-bezier(0.17, 0.67, 0.12, 0.99)`;
     wheel.style.rotate = `${(fullRotations + 1) * DEGREES_IN_CIRCLE + extraRotation}deg`;
 
@@ -175,6 +175,7 @@ function rotate() {
         wheelDeals.length - 1 - Math.floor(extraRotation / DEGREES_PER_SEGMENT);
     wheel.addEventListener('transitionend', () => {
         isSpinning = false;
+        unlockedBtn.removeAttribute('disabled');
         spinButton.disabled = false;
 
         card.innerHTML = `

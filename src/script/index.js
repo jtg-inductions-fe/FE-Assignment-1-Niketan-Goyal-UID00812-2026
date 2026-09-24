@@ -9,20 +9,52 @@ const focusableSelector = [
     'textarea:not([disabled])',
     '[tabindex]:not([tabindex="-1"])',
 ].join(',');
-function updateActiveLink() {
-    const currentHash = window.location.hash;
+const targets = [...links]
+    .map((link) => {
+        const href = link.getAttribute('href');
+        if (!href || href === '/') return null;
+        return document.querySelector(href);
+    })
+    .filter(Boolean);
+
+function updateActiveLink(hash) {
     links.forEach((element) => {
         element.classList.toggle(
             'header__link--active',
-            element.getAttribute('href') === currentHash ||
-                (!currentHash && element.getAttribute('href') === '/'),
+            element.getAttribute('href') === hash ||
+                (!hash && element.getAttribute('href') === '/'),
         );
     });
 }
 
+const observer = new IntersectionObserver(
+    (entries) => {
+        const visibleTargets = entries
+            .filter((entry) => entry.isIntersecting)
+            .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
+        if (visibleTargets.length) {
+            updateActiveLink(`#${visibleTargets[0].target.id}`);
+        }
+    },
+    {
+        threshold: [0, 0.5, 0.75, 1],
+    },
+);
+
+targets.forEach((target) => {
+    observer.observe(target);
+});
+window.addEventListener('scroll', () => {
+    if (window.scrollY === 0) {
+        updateActiveLink('');
+    }
+});
+
 updateActiveLink();
 
-window.addEventListener('hashchange', updateActiveLink);
+window.addEventListener('hashchange', () => {
+    updateActiveLink(window.location.hash);
+});
 
 const splide = new Splide('.splide', {
     type: 'loop',

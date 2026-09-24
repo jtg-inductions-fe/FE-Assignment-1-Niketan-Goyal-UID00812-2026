@@ -10,10 +10,16 @@
     &--primary {
         background-color: $blue;
         color: $white-light;
+        &:hover {
+            background-color: $blue-hover;
+        }
     }
 
     &--secondary {
         background-color: transparent;
         color: $grey-dark;
+        &:hover {
+            background-color: $white-hover;
+        }
     }
 }

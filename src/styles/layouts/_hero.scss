@@ -64,6 +64,8 @@
 
     &__heading {
         width: min(rem(575px), 80vw);
+        overflow: hidden;
+        text-overflow: ellipsis;
         height: auto;
         @include font-size(40px);
         line-height: 1.2;
